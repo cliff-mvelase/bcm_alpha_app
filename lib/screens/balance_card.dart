@@ -1,3 +1,4 @@
+import 'package:bcm_alpha_app/screens/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:bcm_alpha_app/screens/theme/light_color.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -5,18 +6,19 @@ import 'package:bcm_alpha_app/screens/transfer_tabs.dart';
 import 'package:bcm_alpha_app/screens/withdrawal_tabs.dart';
 
 class BalanceCard extends StatefulWidget {
-   final dynamic walletData;
-   BalanceCard({Key ?  key ,required this.walletData}) : super(key: key);
+  final dynamic walletData;
+   BalanceCard({Key ?  key, required this.walletData }) : super(key: key);
 
   @override
   _BalanceCardState createState() => _BalanceCardState();
 }
 
 class _BalanceCardState extends State<BalanceCard> {
+  dynamic walletData;
 
   @override
   Widget build(BuildContext context) {
-    final dynamic walletData;
+
     return Container(
       child: ClipRRect(
           borderRadius: BorderRadius.all(Radius.circular(20)),
@@ -51,7 +53,8 @@ class _BalanceCardState extends State<BalanceCard> {
                               color: LightColor.yellow.withAlpha(200)),
                         ),
                         Text(
-                          ' ${walletData["total"]}',
+                          // ' ${walletData["total"]}',
+                          "12345",
                           style: GoogleFonts.mulish(
                               textStyle: Theme.of(context).textTheme.headline4,
                               fontSize: 35,
@@ -73,7 +76,8 @@ class _BalanceCardState extends State<BalanceCard> {
                               color: LightColor.lightNavyBlue),
                         ),
                         Text(
-                          ' ${walletData["total_btc"]} ',
+                          // ' ${walletData["total_btc"]} ',
+                          "54321",
                           style: TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.w500,
@@ -103,11 +107,13 @@ class _BalanceCardState extends State<BalanceCard> {
                                     size: 20,
                                   ),
                                   SizedBox(width: 10),
-                                  TextButton(
-                                      onPressed: () {
-                                        Navigator.of(context).pushNamed(TransferTabs.routeName);
-                                      },
-                                      child: Text("Withdraw"))
+                                  GestureDetector(
+                                    onTap: (){
+                                      Navigator.of(context).pushNamed(WithdrawalsTabs.routeName);
+                                    },
+                                    child: Text("Withdraw",
+                                        style: TextStyle(color: Colors.white)),
+                                  ),
                                 ],
                               )),
                         ),
@@ -128,8 +134,13 @@ class _BalanceCardState extends State<BalanceCard> {
                                     size: 20,
                                   ),
                                   SizedBox(width: 10),
-                                  Text("Transfer",
-                                      style: TextStyle(color: Colors.white)),
+                                  GestureDetector(
+                                    onTap: (){
+                                  Navigator.of(context).pushNamed(TransferTabs.routeName);
+                                    },
+                                    child: Text("Transfer",
+                                        style: TextStyle(color: Colors.white)),
+                                  ),
                                 ],
                               )),
                         )

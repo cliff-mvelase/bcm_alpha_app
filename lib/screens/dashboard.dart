@@ -174,7 +174,7 @@ class _DashboardState extends State<Dashboard> {
                       SizedBox(
                         height: 20,
                       ),
-                      BalanceCard(walletData: null,),
+                      BalanceCard(walletData: walletData ),
                       SizedBox(
                         height: 15,
                       ),
