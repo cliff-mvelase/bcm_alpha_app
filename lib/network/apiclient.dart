@@ -1,9 +1,10 @@
+import 'package:bcm_alpha_app/network/api_provider.dart';
 import 'package:dio/dio.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:retrofit/http.dart';
 part 'apiclient.g.dart';
 
-@RestApi(baseUrl: "ApiClient.api")
+@RestApi(baseUrl: "http://140.82.39.29/api/")
 abstract class ApiClient {
 
   // factory ApiClient(Dio dio) {

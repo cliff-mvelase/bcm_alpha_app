@@ -14,7 +14,7 @@ class BalanceCard extends StatefulWidget {
 }
 
 class _BalanceCardState extends State<BalanceCard> {
-  dynamic walletData;
+
 
   @override
   Widget build(BuildContext context) {

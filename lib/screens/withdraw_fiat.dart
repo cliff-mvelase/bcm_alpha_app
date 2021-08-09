@@ -42,8 +42,35 @@ class _WithdrawalFiatScreenState extends State<WithdrawalFiatScreen> {
 
   @override
   void initState() {
-    _loadWithdrawalType();
     super.initState();
+    _loadWithdrawalType();
+  }
+
+  void _loadWithdrawalType() async {
+
+    final SharedPreferences sharedPrefs = await SharedPreferences.getInstance();
+    var token = sharedPrefs.getString("token") ?? null;
+
+    var response = await http.get(
+      Uri.parse(ApiProvider.api + 'withdrawalservices'),
+      headers: {
+        HttpHeaders.contentTypeHeader: "application/json",
+        HttpHeaders.acceptHeader: "application/json",
+        HttpHeaders.authorizationHeader: "Bearer $token"
+      },
+    );
+
+    var jsonResponse = jsonDecode(response.body);
+    if (jsonResponse["data"]["status"] == "success") {
+      setState(() {
+        isLoading = true;
+        countryList = jsonResponse["data"]["countries"];
+        withdrawalTypeList = jsonResponse["data"]["withdrawtype"];
+      });
+    } else {
+      Toast.show("Something went wrong. Please try again", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+    }
   }
 
   Future<void> _withdrawBitcoin() async {
@@ -117,32 +144,6 @@ class _WithdrawalFiatScreenState extends State<WithdrawalFiatScreen> {
     }
   }
 
-  void _loadWithdrawalType() async {
-    final SharedPreferences sharedPrefs = await SharedPreferences.getInstance();
-    var token = sharedPrefs.getString("token") ?? null;
-
-    var response = await http.get(
-      Uri.parse(ApiProvider.api + 'withdrawalservices'),
-      headers: {
-        HttpHeaders.contentTypeHeader: "application/json",
-        HttpHeaders.acceptHeader: "application/json",
-        HttpHeaders.authorizationHeader: "Bearer $token"
-      },
-    );
-
-    var jsonResponse = jsonDecode(response.body);
-    if (jsonResponse["data"]["status"] == "success") {
-      setState(() {
-        isLoading = true;
-        countryList = jsonResponse["data"]["countries"];
-        withdrawalTypeList = jsonResponse["data"]["withdrawtype"];
-      });
-    } else {
-      Toast.show("Something went wrong. Please try again", context,
-          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -165,6 +166,7 @@ class _WithdrawalFiatScreenState extends State<WithdrawalFiatScreen> {
                           color: Colors.white70),
                     ),
                     TextField(
+                      keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         hintText: ' amount',
                         hintStyle: TextStyle(color: Colors.white60, fontSize: 15.0, fontWeight: FontWeight.w100),

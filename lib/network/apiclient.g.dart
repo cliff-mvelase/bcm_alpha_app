@@ -28,7 +28,7 @@ Map<String, dynamic> _$PostToJson(Post instance) => <String, dynamic>{
 
 class _ApiClient implements ApiClient {
   _ApiClient(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'ApiClient.api';
+    baseUrl ??= 'http://140.82.39.29/api/';
   }
 
   final Dio _dio;

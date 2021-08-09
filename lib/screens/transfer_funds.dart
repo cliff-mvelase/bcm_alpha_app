@@ -58,57 +58,74 @@ class _TransferFundsScreenState extends State<TransferFundsScreen> {
     return ListView(
       children: <Widget>[
         Container(
-          padding: EdgeInsets.all(5),
+          padding: EdgeInsets.fromLTRB(12.0, 50.0, 12.0, 10.0),
           child: Card(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15),
-            ),
+            color: Theme.of(context).primaryColor,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
+                    SizedBox(height: 15.0,),
                     Text(
                       'Send funds to recipient registered on the system',
-                      style: Theme.of(context).textTheme.headline6,
+                      style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w300,
+                          color: Colors.white),
                     ),
-                    SizedBox(
-                      height: 25,
-                    ),
+                    SizedBox(height: 50),
                     Text(
-                      'Amount USD',
-                      style: Theme.of(context).textTheme.headline5,
+                      'USD',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w300,
+                          color: Colors.white70,
+                      ),
                     ),
                     TextField(
+                      keyboardType: TextInputType.number,
                       decoration: InputDecoration(
-                        hintText: 'USD',
+                        hintText: 'amount',
+                        hintStyle: TextStyle(color: Colors.white60, fontSize: 15.0, fontWeight: FontWeight.w100),
                       ),
+                      style: TextStyle(color: Colors.white),
                       controller: amountUsdController,
                       onSubmitted: (_) => null,
                     ),
                     SizedBox(
-                      height: 25,
+                      height: 30,
                     ),
                     Text(
-                      'Amount BTC',
-                      style: Theme.of(context).textTheme.headline5,
+                      'BTC',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w300,
+                          color: Colors.white70),
                     ),
                     TextField(
                       decoration: InputDecoration(
-                        hintText: 'BTC',
+                        hintText: ' value',
+                        hintStyle: TextStyle(color: Colors.white60, fontSize: 15.0, fontWeight: FontWeight.w100),
                       ),
                       controller: amountBtcController,
                       onSubmitted: (_) => null,
                     ),
                     SizedBox(
-                      height: 25,
+                      height: 30,
                     ),
                     Text(
-                      'Recipient Address',
-                      style: Theme.of(context).textTheme.headline5,
+                      'BITCOIN ADDRESS',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w300,
+                          color: Colors.white70),
                     ),
                     TextField(
-                      decoration: InputDecoration(),
+                      decoration: InputDecoration(
+                        hintText: ' 0x0...',
+                        hintStyle: TextStyle(color: Colors.white60, fontSize: 15.0, fontWeight: FontWeight.w100),
+                      ),
                       keyboardType: TextInputType.emailAddress,
                       controller: recipientEmailController,
                       onSubmitted: (_) => null,
@@ -119,40 +136,84 @@ class _TransferFundsScreenState extends State<TransferFundsScreen> {
                     Padding(
                       padding: EdgeInsets.all(8.0),
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        SizedBox(
-                          height: 30,
-                        ),
-                        Container(
-                          alignment: Alignment.center,
-                          //height: 100,
-                          child: FlatButton(
-                            onPressed: () {
-                              if (amountBtcController == null ||
-                                  amountUsdController == null ||
-                                  recipientEmailController == null) {
-                                Toast.show(
-                                    "Please provide all the details", context,
-                                    duration: Toast.LENGTH_LONG,
-                                    gravity: Toast.BOTTOM);
-                              } else {
-                                transfer();
-                                Toast.show(
-                                    "Transfer successfully completed", context,
-                                    duration: Toast.LENGTH_LONG,
-                                    gravity: Toast.BOTTOM);
-                              }
-                            },
-                            child: Text(
-                              'Submit',
-                              style: Theme.of(context).textTheme.headline6,
-                            ),
-                          ),
-                        ),
-                      ],
+                    Container(
+                        alignment: Alignment.center,
+                        child:  Expanded(
+                          child: Container(
+                              padding:
+                              EdgeInsets.symmetric(horizontal: 5, vertical: 8),
+                              margin: EdgeInsets.all(30.0),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                                  border: Border.all(color: Colors.white, width: 1)),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Icon(
+                                    Icons.send,
+                                    color: Colors.white,
+                                    size: 20,
+                                  ),
+                                  SizedBox(width: 10),
+                                  GestureDetector(
+                                    onTap: (){
+                                      if (amountBtcController == null || amountUsdController == null || recipientEmailController == null)
+                                      {
+                                        Toast.show(
+                                            "Please provide all the details", context,
+                                            duration: Toast.LENGTH_LONG,
+                                            gravity: Toast.BOTTOM);
+                                      }
+                                      else
+                                        {
+                                        transfer();
+                                        Toast.show(
+                                            "Transfer successfully completed", context,
+                                            duration: Toast.LENGTH_LONG,
+                                            gravity: Toast.BOTTOM);
+                                        }
+                                    },
+                                    child: Text("SEND",
+                                        style: TextStyle(color: Colors.white)),
+                                  ),
+                                ],
+                              )),
+                        )
                     ),
+                    // Column(
+                    //   crossAxisAlignment: CrossAxisAlignment.start,
+                    //   children: <Widget>[
+                    //     SizedBox(
+                    //       height: 30,
+                    //     ),
+                    //     Container(
+                    //       alignment: Alignment.center,
+                    //       //height: 100,
+                    //       child: FlatButton(
+                    //         onPressed: () {
+                    //           if (amountBtcController == null ||
+                    //               amountUsdController == null ||
+                    //               recipientEmailController == null) {
+                    //             Toast.show(
+                    //                 "Please provide all the details", context,
+                    //                 duration: Toast.LENGTH_LONG,
+                    //                 gravity: Toast.BOTTOM);
+                    //           } else {
+                    //             transfer();
+                    //             Toast.show(
+                    //                 "Transfer successfully completed", context,
+                    //                 duration: Toast.LENGTH_LONG,
+                    //                 gravity: Toast.BOTTOM);
+                    //           }
+                    //         },
+                    //         child: Text(
+                    //           'Submit',
+                    //           style: Theme.of(context).textTheme.headline6,
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ],
+                    // ),
                   ]),
             ),
           ),

@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:bcm_alpha_app/network/api_provider.dart';
-import 'package:bcm_alpha_app/screens/theme/light_color.dart';
 import 'package:bcm_alpha_app/screens/withdrawal_tabs.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -110,6 +109,7 @@ class _WithdrawBitcoinScreenState extends State<WithdrawBitcoinScreen> {
                           color: Colors.white70),
                     ),
                     TextField(
+                      keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         hintText: ' amount',
                         hintStyle: TextStyle(color: Colors.white60, fontSize: 15.0, fontWeight: FontWeight.w100),
@@ -129,6 +129,7 @@ class _WithdrawBitcoinScreenState extends State<WithdrawBitcoinScreen> {
                           color: Colors.white70),
                     ),
                     TextField(
+                      style: TextStyle(color: Colors.white),
                       decoration: InputDecoration(
                         hintText: ' value',
                         hintStyle: TextStyle(color: Colors.white60, fontSize: 15.0, fontWeight: FontWeight.w100),
@@ -147,6 +148,7 @@ class _WithdrawBitcoinScreenState extends State<WithdrawBitcoinScreen> {
                           color: Colors.white70),
                     ),
                     TextField(
+                      style: TextStyle(color: Colors.white),
                       decoration: InputDecoration(),
                       controller: bitcoinAddressController,
                       onSubmitted: (_) => null,
