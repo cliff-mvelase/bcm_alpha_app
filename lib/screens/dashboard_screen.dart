@@ -64,12 +64,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
         : ListView(
             children: <Widget>[
               WalletItem(walletData: walletData),
-              shareholderData == null
-                  ? Container()
-                  : ShareHolderContracts(shareholderData: shareholderData),
-              investmentData == null
-                  ? Container()
-                  : InvestmentContract(investmentData: investmentData),
+              shareholderData == null ? Container() : ShareHolderContracts(shareholderData: shareholderData),
+              investmentData == null ? Container() : InvestmentContract(investmentData: investmentData),
               ActiveContractsItems(activeContractData: null,),
               Card(
                 shape: RoundedRectangleBorder(

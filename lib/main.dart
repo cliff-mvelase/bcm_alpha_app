@@ -1,5 +1,7 @@
 import 'package:bcm_alpha_app/screens/contract_info_screen.dart';
+import 'package:bcm_alpha_app/screens/contracts_tabs.dart';
 import 'package:bcm_alpha_app/screens/dividends_screen.dart';
+import 'package:bcm_alpha_app/screens/investment_contract.dart';
 import 'package:bcm_alpha_app/screens/investment_success_screen.dart';
 import 'package:bcm_alpha_app/screens/investments_screen.dart';
 import 'package:bcm_alpha_app/screens/latest_payouts_screen.dart';
@@ -15,6 +17,7 @@ import 'package:bcm_alpha_app/screens/settings_screens/help.dart';
 import 'package:bcm_alpha_app/screens/settings_screens/kyc.dart';
 import 'package:bcm_alpha_app/screens/settings_screens/privacy_screen.dart';
 import 'package:bcm_alpha_app/screens/settings_screens/terms.dart';
+import 'package:bcm_alpha_app/screens/shared_contract.dart';
 import 'package:bcm_alpha_app/screens/shareholder_packages_screen.dart';
 import 'package:bcm_alpha_app/screens/tabs_screen.dart';
 import 'package:bcm_alpha_app/screens/theme/theme.dart';
@@ -99,7 +102,9 @@ class MyApp extends StatelessWidget {
         TransactionHistory.routeName: (ctx) => TransactionHistory(),
         InvestmentSuccessScreen.routeName: (ctx) => InvestmentSuccessScreen(),
         ContractInfo.routeName: (ctx) => ContractInfo(),
-        Contracts.routeName: (ctx) => Contracts(),
+        ContractsTabs.routeName: (ctx) => ContractsTabs(),
+        InvestmentContract.routeName: (ctx) => InvestmentContract()
+
       },
     );
   }

@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:bcm_alpha_app/screens/contracts_tabs.dart';
+import 'package:bcm_alpha_app/screens/shared_contract.dart';
 import 'package:bcm_alpha_app/screens/tile_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -74,7 +76,11 @@ class _DashboardState extends State<Dashboard> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: <Widget>[
-        _icon(Icons.share, "Contracts"),
+        GestureDetector(
+            onTap: (){
+              Navigator.of(context).pushNamed(ContractsTabs.routeName);
+            },
+            child: _icon(Icons.share, "Contracts")),
         _icon(Icons.inventory, "Widthwals"),
         _icon(Icons.payment, "Payments"),
         _icon(Icons.people, "Packages"),
@@ -87,7 +93,7 @@ class _DashboardState extends State<Dashboard> {
       children: <Widget>[
         GestureDetector(
           onTap: () {
-            Navigator.pushNamed(context, '/transfer');
+            Navigator.of(context).pushNamed(ContractsTabs.routeName);
           },
           child: Container(
             height: 80,
