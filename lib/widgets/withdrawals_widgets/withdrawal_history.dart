@@ -30,75 +30,102 @@ class WithdrawalHistoryWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     DataRow _getDataRow(withdrawals) {
       return DataRow(
+        selected: true,
         cells: <DataCell>[
-          DataCell(Column(mainAxisSize: MainAxisSize.min, children: [
-            Text(_convertDateTimeDisplay(withdrawals["created_at"]),
-                style: TextStyle(color: Colors.white)),
-            Text(withdrawals["type"], style: TextStyle(color: Colors.white))
-          ])),
+          DataCell(
+              Text(_convertDateTimeDisplay(withdrawals["created_at"]),
+              style: TextStyle(
+                                    fontStyle: FontStyle.normal,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 18,
+                                    color: Colors.white70))),
+          DataCell(
+              Text(withdrawals["type"],
+                  style: TextStyle(
+                                    fontStyle: FontStyle.normal,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 18,
+                                    color: Colors.white70))),
           DataCell(Text(
               '\$ ${_numberCurrencyDisplay(withdrawals["amount_usd"])}',
-              style: TextStyle(color: Colors.white))),
+              style: TextStyle(
+                                    fontStyle: FontStyle.normal,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 18,
+                                    color: Colors.white70))),
           DataCell(Text(
               withdrawals["method"] == null ? "N/A" : withdrawals["method"],
-              style: TextStyle(color: Colors.white))),
+              style: TextStyle(
+                                    fontStyle: FontStyle.normal,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 18,
+                                    color: Colors.white70))),
         ],
       );
     }
 
     return Padding(
-        padding: EdgeInsets.all(5),
-        child: Card(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15),
-            ),
-            child: Padding(
-              padding: EdgeInsets.only(bottom: 20),
-              child: Column(
-                children: <Widget>[
-                  SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: DataTable(
-                        dividerThickness: 0.5,
-                        columns: const <DataColumn>[
-                          DataColumn(
-                            label: Text('Date',
-                                style: TextStyle(
-                                    fontStyle: FontStyle.normal,
-                                    color: Colors.white)),
-                          ),
-                          DataColumn(
-                            label: Text(
-                              'Amount',
-                              style: TextStyle(
-                                  fontStyle: FontStyle.normal,
-                                  color: Colors.white),
-                            ),
-                          ),
-                          // DataColumn(
-                          //   label: Text(
-                          //     'Type',
-                          //     style: TextStyle(
-                          //         fontStyle: FontStyle.normal,
-                          //         color: Colors.white),
-                          //   ),
-                          // ),
-                          DataColumn(
-                            label: Text(
-                              'Payment method',
-                              style: TextStyle(
-                                  fontStyle: FontStyle.normal,
-                                  color: Colors.white),
-                            ),
-                          ),
-                        ],
-                        rows: List.generate(withdrawals.length,
-                            (index) => _getDataRow(withdrawals[index])),
-                      ))
-                ],
-              ),
-            )));
+        padding: EdgeInsets.fromLTRB(0, 40.0, 0, 0),
+        child: Expanded(
+          flex: 1,
+          child: Card(
+              child: Padding(
+                padding: EdgeInsets.only(bottom: 10),
+                child: Container(
+                  child:  FittedBox(
+                    alignment: Alignment.center,
+                    child: SingleChildScrollView(
+                          scrollDirection: Axis.vertical,
+                          child: DataTable(
+                            dividerThickness: 0.5,
+                            columnSpacing: 30,
+                            showBottomBorder: true,
+                            columns: const <DataColumn>[
+                              DataColumn(
+                                label: Text('DATE',
+                                    style: TextStyle(
+                                        fontStyle: FontStyle.normal,
+                                        fontWeight: FontWeight.w900,
+                                        color: Colors.white)),
+                              ),
+                              DataColumn(
+                                label: Text(
+                                  'TYPE',
+                                  style: TextStyle(
+                                      fontStyle: FontStyle.normal,
+                                      fontWeight: FontWeight.w900,
+                                      color: Colors.white),
+                                ),
+                              ),
+                              DataColumn(
+                                label: Text(
+                                  'AMOUNT',
+                                  style: TextStyle(
+                                      fontStyle: FontStyle.normal,
+                                      fontWeight: FontWeight.w900,
+                                      color: Colors.white),
+                                ),
+                              ),
+                              DataColumn(
+                                label: Text(
+                                  'PAYMENT METHOD ',
+                                    style: TextStyle(
+                                        fontStyle: FontStyle.normal,
+                                        fontWeight: FontWeight.w900,
+                                        color: Colors.white),
+                                ),
+                              ),
+                            ],
+                            rows: List.generate(withdrawals.length,
+                                (index) => _getDataRow(withdrawals[index])),
+                          )),
+                  )
+
+                ),
+              )),
+        ));
   }
 }

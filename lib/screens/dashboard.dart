@@ -2,8 +2,12 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:bcm_alpha_app/screens/contracts_tabs.dart';
+import 'package:bcm_alpha_app/screens/packages_tabs.dart';
+import 'package:bcm_alpha_app/screens/payments_tabs.dart';
 import 'package:bcm_alpha_app/screens/shared_contract.dart';
 import 'package:bcm_alpha_app/screens/tile_text.dart';
+import 'package:bcm_alpha_app/screens/withdrawal_tabs.dart';
+import 'package:bcm_alpha_app/screens/withdrawal_view_tabs.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:bcm_alpha_app/screens/balance_card.dart';
@@ -80,20 +84,32 @@ class _DashboardState extends State<Dashboard> {
             onTap: (){
               Navigator.of(context).pushNamed(ContractsTabs.routeName);
             },
-            child: _icon(Icons.share, "Contracts")),
-        _icon(Icons.inventory, "Widthwals"),
-        _icon(Icons.payment, "Payments"),
-        _icon(Icons.people, "Packages"),
+            child: _icon(Icons.share, "Contracts", ContractsTabs.routeName )),
+        GestureDetector(
+            onTap: (){
+              Navigator.of(context).pushNamed(WithdrawalsTabs.routeName);
+            },
+            child: _icon(Icons.inventory, "Widthwals", WithdrawalsTabs.routeName)),
+        GestureDetector(
+            onTap:() {
+              Navigator.of(context).pushNamed(PaymentsTabs.routeName);
+            },
+            child: _icon(Icons.payment, "Payments", PaymentsTabs.routeName)),
+        GestureDetector(
+            onTap:(){
+              Navigator.of(context).pushNamed(PackagesTabs.routeName);
+            },
+            child: _icon(Icons.people, "Packages", PackagesTabs.routeName)),
       ],
     );
   }
 
-  Widget _icon(IconData icon, String text) {
+  Widget _icon(IconData icon, String text, routeName) {
     return Column(
       children: <Widget>[
         GestureDetector(
           onTap: () {
-            Navigator.of(context).pushNamed(ContractsTabs.routeName);
+            Navigator.of(context).pushNamed(routeName);
           },
           child: Container(
             height: 80,

@@ -1,4 +1,7 @@
 //start
+import 'package:bcm_alpha_app/screens/withdrawal_view_cancelled_rqst_screen.dart';
+import 'package:bcm_alpha_app/screens/withdrawal_view_pending__rqst_screen.dart';
+import 'package:bcm_alpha_app/screens/withdrawal_view_processed_rqst_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:bcm_alpha_app/screens/theme/light_color.dart';
 import 'package:bcm_alpha_app/screens/tile_text.dart';
@@ -113,29 +116,31 @@ class _WithdrawalsTabsState extends State<WithdrawalsTabs> with SingleTickerProv
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 2,
+      length: 3,
       child: Scaffold(
           backgroundColor: Theme.of(context).primaryColor,
           appBar: AppBar(
             bottom: const TabBar(
               tabs: [
-                Tab(icon: Icon(Icons.account_balance_wallet),),
-                Tab(icon: Icon(Icons.transfer_within_a_station)),
+                Tab( child: TitleText(text: "Processed", color: Colors.white70,), ),
+                Tab(child: TitleText(text: "Pending", color: Colors.white70),),
+                Tab(child: TitleText(text: "Cancelled", color: Colors.white70),),
               ],
             ),
-            title: const Text('Withdraw'),
+            title: const Text('Withdrawals'),
           ),
           body: Container(
             height: MediaQuery.of(context).size.height,
             child: Stack(
               fit: StackFit.expand,
               children: <Widget>[
-                Align(
+                Align (
                   alignment: Alignment.topCenter,
                   child: TabBarView(
                       children: [
-                        WithdrawBitcoinScreen(),
-                        WithdrawalFiatScreen(),
+                        WithdrawalViewProcessedReqstScreen(),
+                        WithdrawalViewPendingReqstScreen(),
+                        WithdrawalViewCancelledReqstScreen(),
                         // Expanded(
                         //   flex: 1,
                         //   child: SizedBox(),

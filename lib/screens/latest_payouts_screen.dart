@@ -47,21 +47,11 @@ class _LatestPayoutsScreenState extends State<LatestPayoutsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Image.asset('assets/images/LogoSolid.png',
-              fit: BoxFit.cover, height: 50),
-          backgroundColor: Theme.of(context).canvasColor,
-        ),
         body: isLoading
             ? Center(child: CircularProgressIndicator())
             : ListView(
                 children: <Widget>[
-                  Padding(padding: EdgeInsets.only(top: 10)),
-                  Text(
-                    'Latest payouts',
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.headline5,
-                  ),
+                  Padding(padding: EdgeInsets.fromLTRB(0, 50.0, 0, 0)),
                   LatestPayoutWidget(transactions: transactions)
                 ],
               ));

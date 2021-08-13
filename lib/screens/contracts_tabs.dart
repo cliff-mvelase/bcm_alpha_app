@@ -122,8 +122,8 @@ class _ContractsTabsState extends State<ContractsTabs> with SingleTickerProvider
           appBar: AppBar(
             bottom: const TabBar(
               tabs: [
-                Tab(child: TitleText(text: "Shared", color: Colors.white,),),
-                Tab(child: TitleText(text: "Invested", color: Colors.white,),),
+                Tab(child: TitleText(text: "Shareholder", color: Colors.white,),),
+                Tab(child: TitleText(text: "Investment", color: Colors.white,),),
               ],
             ),
             title: const Text('Contracts'),

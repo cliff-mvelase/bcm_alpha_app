@@ -178,7 +178,7 @@ class _SharedContractState extends State<SharedContract> {
                       height: 120,
                     ),
                     Text(
-                      'Shared Contract',
+                      'Shareholder Contract Total',
                       style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.w700,

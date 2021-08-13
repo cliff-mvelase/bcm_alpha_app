@@ -7,6 +7,8 @@ import 'package:bcm_alpha_app/screens/investments_screen.dart';
 import 'package:bcm_alpha_app/screens/latest_payouts_screen.dart';
 import 'package:bcm_alpha_app/screens/login_screen.dart';
 import 'package:bcm_alpha_app/screens/my_contracts.dart';
+import 'package:bcm_alpha_app/screens/packages_tabs.dart';
+import 'package:bcm_alpha_app/screens/payments_tabs.dart';
 import 'package:bcm_alpha_app/screens/register_screen.dart';
 import 'package:bcm_alpha_app/screens/reports_screens.dart';
 import 'package:bcm_alpha_app/screens/resend_email.dart';
@@ -103,8 +105,9 @@ class MyApp extends StatelessWidget {
         InvestmentSuccessScreen.routeName: (ctx) => InvestmentSuccessScreen(),
         ContractInfo.routeName: (ctx) => ContractInfo(),
         ContractsTabs.routeName: (ctx) => ContractsTabs(),
-        InvestmentContract.routeName: (ctx) => InvestmentContract()
-
+        InvestmentContract.routeName: (ctx) => InvestmentContract(),
+        PackagesTabs.routeName: (ctx) => PackagesTabs(),
+        PaymentsTabs.routeName: (ctx) => PaymentsTabs()
       },
     );
   }
