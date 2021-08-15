@@ -9,7 +9,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class LatestPayoutsScreen extends StatefulWidget {
   static const routeName = '/latestPayouts';
-
   @override
   _LatestPayoutsScreenState createState() => _LatestPayoutsScreenState();
 }

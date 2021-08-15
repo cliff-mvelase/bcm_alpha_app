@@ -9,7 +9,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class DividendsScreen extends StatefulWidget {
   static const routeName = '/dividends';
-
   @override
   _DividendsScreenState createState() => _DividendsScreenState();
 }
@@ -48,21 +47,11 @@ class _DividendsScreenState extends State<DividendsScreen> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Image.asset('assets/images/LogoSolid.png',
-              fit: BoxFit.cover, height: 50),
-          backgroundColor: Theme.of(context).canvasColor,
-        ),
         body: isLoading
             ? Center(child: CircularProgressIndicator())
             : ListView(
           children: <Widget>[
-            Padding(padding: EdgeInsets.only(top: 10)),
-            Text(
-              'Dividends',
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.headline5,
-            ),
+            Padding(padding: EdgeInsets.fromLTRB(0, 40.0, 0,0)),
             DividendsListWidget(transactions: dividends)
           ],
         ));

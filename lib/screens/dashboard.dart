@@ -183,7 +183,6 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // bottomNavigationBar: BottomNavigation(),
         body: SafeArea(
             child: SingleChildScrollView(
               child: Container(

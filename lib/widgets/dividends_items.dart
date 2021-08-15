@@ -45,47 +45,49 @@ class DividendsListWidget extends StatelessWidget {
 
     return Padding(
         padding: EdgeInsets.all(5),
-        child: Card(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15),
-            ),
-            child: Padding(
-              padding: EdgeInsets.only(bottom: 20),
-              child: Column(
-                children: <Widget>[
-                  SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: DataTable(
-                        dividerThickness: 0.5,
-                        columns: const <DataColumn>[
-                          DataColumn(
-                            label: Text('Date',
-                                style: TextStyle(
-                                    fontStyle: FontStyle.normal,
-                                    color: Colors.white)),
-                          ),
-                          DataColumn(
-                            label: Text(
-                              'Amount',
-                              style: TextStyle(
-                                  fontStyle: FontStyle.normal,
-                                  color: Colors.white),
-                            ),
-                          ),
-                          DataColumn(
-                            label: Text(
-                              'Profit',
-                              style: TextStyle(
-                                  fontStyle: FontStyle.normal,
-                                  color: Colors.white),
-                            ),
-                          ),
-                        ],
-                        rows: List.generate(transactions.length,
-                            (index) => _getDataRow(transactions[index])),
-                      ))
-                ],
-              ),
-            )));
+        child: Expanded(
+          flex: 1,
+          child: Card(
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(0, 0, 0, 20.0),
+                child: Column(
+                  children: <Widget>[
+                    FittedBox(
+                      alignment: Alignment.center,
+                      child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: DataTable(
+                            dividerThickness: 0.5,
+                            columns: const <DataColumn>[
+                              DataColumn(
+                                label: Text('DATE',
+                                    style: TextStyle(
+                                        fontStyle: FontStyle.normal,
+                                        fontWeight: FontWeight.w900,
+                                        color: Colors.white)),
+                              ),
+                              DataColumn(
+                                label: Text('AMOUNT',
+                                    style: TextStyle(
+                                        fontStyle: FontStyle.normal,
+                                        fontWeight: FontWeight.w900,
+                                        color: Colors.white)),
+                              ),
+                              DataColumn(
+                                label: Text('PROFIT',
+                                    style: TextStyle(
+                                        fontStyle: FontStyle.normal,
+                                        fontWeight: FontWeight.w900,
+                                        color: Colors.white)),
+                              ),
+                            ],
+                            rows: List.generate(transactions.length,
+                                (index) => _getDataRow(transactions[index])),
+                          )),
+                    )
+                  ],
+                ),
+              )),
+        ));
   }
 }

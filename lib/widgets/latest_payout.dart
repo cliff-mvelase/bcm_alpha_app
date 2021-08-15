@@ -66,7 +66,7 @@ class LatestPayoutWidget extends StatelessWidget {
           ])),
           DataCell(Text(
               transactions["wallet_address"] == null
-                  ? Icons.not_interested
+                  ? "loading..."
                   : transactions["wallet_address"],
               style: TextStyle(
                   fontStyle: FontStyle.normal,
