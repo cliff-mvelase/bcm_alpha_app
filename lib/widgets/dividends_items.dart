@@ -25,7 +25,8 @@ class DividendsListWidget extends StatelessWidget {
     DataRow _getDataRow(transactions) {
       return DataRow(
         cells: <DataCell>[
-          DataCell(Column(mainAxisSize: MainAxisSize.min, children: [
+          DataCell(Column(
+              mainAxisSize: MainAxisSize.min, children: [
             Text(_convertDateTimeDisplay(transactions["created_at"]),
                 style: TextStyle(color: Colors.white)),
             Text(transactions["currency"],

@@ -6,7 +6,6 @@ import 'package:bcm_alpha_app/network/api_provider.dart';
 import 'package:bcm_alpha_app/screens/dividends_screen.dart';
 import 'package:bcm_alpha_app/screens/latest_payouts_screen.dart';
 import 'package:bcm_alpha_app/screens/reports_screens.dart';
-import 'package:bcm_alpha_app/screens/withdrawal_view_tabs.dart';
 import 'package:bcm_alpha_app/widgets/active_contracts_items.dart';
 import 'package:bcm_alpha_app/widgets/investments_widgets/investment_contract.dart';
 import 'package:bcm_alpha_app/widgets/investments_widgets/shareholder_contract.dart';
@@ -76,8 +75,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   child: FlatButton(
                       padding: EdgeInsets.all(0),
                       onPressed: () {
-                        Navigator.of(context)
-                            .pushNamed(WithdrawalsViewTabs.routeName);
+                        // Navigator.of(context)
+                        //     .pushNamed(WithdrawalTabs.routeName);
                       },
                       child: ListTile(
                           title: Text('Withdrawal Request',

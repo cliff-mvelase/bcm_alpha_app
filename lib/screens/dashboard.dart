@@ -4,10 +4,8 @@ import 'dart:io';
 import 'package:bcm_alpha_app/screens/contracts_tabs.dart';
 import 'package:bcm_alpha_app/screens/packages_tabs.dart';
 import 'package:bcm_alpha_app/screens/payments_tabs.dart';
-import 'package:bcm_alpha_app/screens/shared_contract.dart';
 import 'package:bcm_alpha_app/screens/tile_text.dart';
 import 'package:bcm_alpha_app/screens/withdrawal_tabs.dart';
-import 'package:bcm_alpha_app/screens/withdrawal_view_tabs.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:bcm_alpha_app/screens/balance_card.dart';
@@ -16,7 +14,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 import 'package:bcm_alpha_app/network/api_provider.dart';
-import 'package:bcm_alpha_app/screens/bottom_navigation_bar.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);

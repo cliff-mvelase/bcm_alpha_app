@@ -31,8 +31,8 @@ class _WithdrawalFiatScreenState extends State<WithdrawalFiatScreen> {
   //Load dropdown boxes
    late List  countryList;
    var  _country;
-   late List withdrawalTypeList;
    var _withdrawalType;
+   late List withdrawalTypeList;
 
   //Hiding and showing widgets depending on select withdraw type
   var showBankWidget = false;
@@ -46,11 +46,9 @@ class _WithdrawalFiatScreenState extends State<WithdrawalFiatScreen> {
     _loadWithdrawalType();
   }
 
-  void _loadWithdrawalType() async {
-
+  Future<void> _loadWithdrawalType() async {
     final SharedPreferences sharedPrefs = await SharedPreferences.getInstance();
-    var token = sharedPrefs.getString("token") ?? null;
-
+    var token = sharedPrefs.getString("token");
     var response = await http.get(
       Uri.parse(ApiProvider.api + 'withdrawalservices'),
       headers: {
@@ -64,13 +62,17 @@ class _WithdrawalFiatScreenState extends State<WithdrawalFiatScreen> {
     if (jsonResponse["data"]["status"] == "success") {
       setState(() {
         isLoading = true;
-        countryList = jsonResponse["data"]["countries"];
         withdrawalTypeList = jsonResponse["data"]["withdrawtype"];
+       countryList = jsonResponse["data"]["countries"];
       });
     } else {
       Toast.show("Something went wrong. Please try again", context,
           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
     }
+
+    setState(() {
+      isLoading = false;
+    });
   }
 
   Future<void> _withdrawBitcoin() async {
@@ -251,7 +253,7 @@ class _WithdrawalFiatScreenState extends State<WithdrawalFiatScreen> {
                                           }
                                         });
                                       },
-                                      items: withdrawalTypeList.map((item) {
+                                      items : withdrawalTypeList.map((item) {
                                             return new DropdownMenuItem(
                                               child: new Text(item),
                                               value: item.toString(),

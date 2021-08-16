@@ -20,11 +20,6 @@ class InvestmentsScreen extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: ListView(
           children: <Widget>[
-            Text(
-              'Investment Contracts',
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.headline5,
-            ),
             InvestmentPackageDigital(),
             QuaterlyReturns(),
             SemiAnnualReturns(),

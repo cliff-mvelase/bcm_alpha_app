@@ -1,3 +1,4 @@
+import 'package:bcm_alpha_app/screens/tile_text.dart';
 import 'package:flutter/material.dart';
 
 class InvestmentPackageDigital extends StatelessWidget {
@@ -6,17 +7,11 @@ class InvestmentPackageDigital extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(5),
       child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15),
-        ),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: <Widget>[
-              Text(
-                'Investment Package With Digital Shares',
-                style: Theme.of(context).textTheme.headline5,
-              ),
+               TitleText(text: "With Digital Shares", color: Colors.white70),
               SizedBox(
                 height: 10,
               ),
@@ -28,46 +23,57 @@ class InvestmentPackageDigital extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text('Investment Amount'),
-                          Text('\$10,000 - \$999,999',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 18)),
-                          Text('BTC 1.89743'),
+                          Text('Invested Amount', style: TextStyle(color: Colors.white60, fontSize: 18.0, fontWeight: FontWeight.w400)),
+                          SizedBox(height: 5.0,),
+                          Text('\$10,000',
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.white70)),
+                          Text('BTC 1.89743', style: TextStyle(color: Colors.green)),
                         ],
                       ),
+
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: <Widget>[
-                          Text('Potential Profit'),
-                          Text('\$350/ pm',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 18)),
-                          Text('BTC 1.89743'),
+                          Text('Profit (P/M)', style: TextStyle(color: Colors.white60, fontSize: 18.0, fontWeight: FontWeight.w400)),
+                          SizedBox(height: 5.0,),
+                          Text('\$350',
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w300,
+                                  color: Colors.white70)),
+                          Text('BTC 1.89743', style: TextStyle(color: Colors.green, fontSize: 12)),
                         ],
                       ),
                     ],
                   )),
               Padding(
-                  padding: EdgeInsets.all(10),
+                  padding: EdgeInsets.all(5.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text('contract Period'),
+                          Text('Validity Duration ', style: TextStyle(color: Colors.white60, fontSize: 18.0, fontWeight: FontWeight.w400)),
                           Text('3 Years',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 18)),
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w300,
+                                color: Colors.white70)),
                         ],
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: <Widget>[
-                          Text('Interest'),
+                          Text('Interest', style: TextStyle(color: Colors.white60, fontSize: 20.0, fontWeight: FontWeight.w100)),
                           Text('3.5 %',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 18)),
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w300,
+                                color: Colors.white70)),
                         ],
                       ),
                     ],

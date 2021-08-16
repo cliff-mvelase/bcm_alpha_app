@@ -27,7 +27,6 @@ import 'package:bcm_alpha_app/screens/transaction_history.dart';
 import 'package:bcm_alpha_app/screens/transfer_tabs.dart';
 import 'package:bcm_alpha_app/screens/verify_password.dart';
 import 'package:bcm_alpha_app/screens/withdrawal_tabs.dart';
-import 'package:bcm_alpha_app/screens/withdrawal_view_tabs.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -97,7 +96,6 @@ class MyApp extends StatelessWidget {
         AccountDetails.routeName: (ctx) => AccountDetails(),
         KYC.routeName: (ctx) => KYC(),
         Terms.routeName: (ctx) => Terms(),
-        WithdrawalsViewTabs.routeName: (ctx) => WithdrawalsViewTabs(),
         LatestPayoutsScreen.routeName: (ctx) => LatestPayoutsScreen(),
         DividendsScreen.routeName: (ctx) => DividendsScreen(),
         ReportsScreen.routeName: (ctx) => ReportsScreen(),

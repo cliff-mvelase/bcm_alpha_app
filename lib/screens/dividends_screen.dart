@@ -47,13 +47,11 @@ class _DividendsScreenState extends State<DividendsScreen> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-        body: isLoading
-            ? Center(child: CircularProgressIndicator())
-            : ListView(
-          children: <Widget>[
-            Padding(padding: EdgeInsets.fromLTRB(0, 40.0, 0,0)),
-            DividendsListWidget(transactions: dividends)
-          ],
-        ));
+        body: isLoading ? Center(child: CircularProgressIndicator()) : ListView(
+                                                                          children: <Widget>[
+                                                                            Padding(padding: EdgeInsets.fromLTRB(0, 40.0, 0,0)),
+                                                                            DividendsListWidget(transactions: dividends)
+                                                                          ],
+                                                                        ));
   }
 }
