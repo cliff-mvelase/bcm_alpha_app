@@ -14,24 +14,14 @@ class _TransferTabsState extends State<TransferTabs> with SingleTickerProviderSt
   late TabController _tabController;
   late List<Map<String, Widget>> _pages;
 
-  int _selectedPageIndex = 0;
-
   @override
   void initState() {
     _pages = [
-      {
-        'page': TransferFundsScreen(),
-      }
+      { 'page': TransferFundsScreen(),}
     ];
     super.initState();
     _tabController = new TabController(length: _pages.length, vsync: this);
     _tabController.addListener(() {});
-  }
-
-  void _selectPage(int index) {
-    setState(() {
-      _selectedPageIndex = index;
-    });
   }
 
   @override
@@ -47,7 +37,6 @@ class _TransferTabsState extends State<TransferTabs> with SingleTickerProviderSt
             ],
           ),
         ),
-        // body: _pages[_selectedPageIndex]['page'],
           body: Container(
             height: MediaQuery.of(context).size.height,
             child: Stack(
@@ -58,46 +47,6 @@ class _TransferTabsState extends State<TransferTabs> with SingleTickerProviderSt
                   child: TabBarView(
                     children: [
                       TransferFundsScreen(),
-                      // Expanded(
-                      //   flex: 1,
-                      //   child: SizedBox(),
-                      // ),
-                      // Container(
-                      //   height: 55,
-                      //   width: 60,
-                      //   decoration: BoxDecoration(
-                      //       image: DecorationImage(
-                      //           image: NetworkImage(
-                      //               "https://jshopping.in/images/detailed/591/ibboll-Fashion-Mens-Optical-Glasses-Frames-Classic-Square-Wrap-Frame-Luxury-Brand-Men-Clear-Eyeglasses-Frame.jpg"),
-                      //           fit: BoxFit.cover),
-                      //       borderRadius: BorderRadius.all(Radius.circular(15))),
-                      // ),
-                      // Text(
-                      //   'Sending money to User',
-                      //   style: TextStyle(
-                      //       fontSize: 15,
-                      //       fontWeight: FontWeight.w700,
-                      //       color: Colors.white),
-                      // ),
-                      // SizedBox(
-                      //   height: 20,
-                      // ),
-                      // Container(
-                      //     width: 130,
-                      //     padding:
-                      //     EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-                      //     alignment: Alignment.center,
-                      //     decoration: BoxDecoration(
-                      //         color: LightColor.navyBlue2,
-                      //         borderRadius:
-                      //         BorderRadius.all(Radius.circular(15))),
-                      //     child: Text(
-                      //        "10,000",
-                      //     )),
-                      // Expanded(
-                      //   flex: 2,
-                      //   child: SizedBox(),
-                      // )
                     ],
                   ),
                 ),
@@ -117,36 +66,6 @@ class _TransferTabsState extends State<TransferTabs> with SingleTickerProviderSt
                     backgroundColor: LightColor.lightBlue1,
                   ),
                 ),
-                // Positioned(
-                //   top: MediaQuery.of(context).size.height * .6,
-                //   right: -180,
-                //   child: CircleAvatar(
-                //     radius: 100,
-                //     backgroundColor: LightColor.yellow2,
-                //   ),
-                // ),
-                // Positioned(
-                //   top: MediaQuery.of(context).size.height * .6,
-                //   right: -200,
-                //   child: CircleAvatar(
-                //     radius: 120,
-                //     backgroundColor: LightColor.yellow,
-                //   ),
-                // ),
-                // Positioned(
-                //     left: 0,
-                //     top: 40,
-                //     child: Row(
-                //       children: <Widget>[
-                //         BackButton(color: Colors.white,),
-                //         SizedBox(width: 20),
-                //         TitleText(
-                //           text: " Withdraw ",
-                //           color: Colors.white,
-                //         )
-                //       ],
-                //     )),
-                // _buttonWidget(),
               ],
             ),
           )),

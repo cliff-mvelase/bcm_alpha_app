@@ -15,32 +15,18 @@ class TabsScreen extends StatefulWidget {
 
 class _TabsScreenState extends State<TabsScreen> {
   late List<Map<String, Widget>> _pages;
-
+  bool isLoading = false;
   int _selectedPageIndex = 0;
 
   @override
   void initState() {
     _pages = [
-      {
-        'page': Dashboard(),
-      },
-      {
-        'page': InvestmentsScreen(),
-      },
-      {
-        'page': ContractsOptionsScreen(),
-      },
-      {
-        'page': SettingsScreen(),
-      }
+      { 'page': Dashboard(), },
+      { 'page': InvestmentsScreen(),},
+      { 'page': ContractsOptionsScreen(),},
+      { 'page': SettingsScreen(),}
     ];
     super.initState();
-  }
-
-  void _selectPage(int index) {
-    setState(() {
-      _selectedPageIndex = index;
-    });
   }
 
   @override
@@ -54,38 +40,8 @@ class _TabsScreenState extends State<TabsScreen> {
         ),
         leading: new Container(),
       ),
-      body: _pages[_selectedPageIndex]['page'],
+      body: isLoading ? Center(child: CircularProgressIndicator()) : _pages[_selectedPageIndex]['page'],
       bottomNavigationBar: BottomNavigation(),
-      // bottomNavigationBar: BottomNavigationBar(
-      //   onTap: _selectPage,
-      //   backgroundColor: Theme.of(context).canvasColor,
-      //   selectedItemColor: Theme.of(context).accentColor,
-      //   unselectedItemColor: Colors.white,
-      //   currentIndex: _selectedPageIndex,
-      //   type: BottomNavigationBarType.shifting,
-      //   items: [
-      //     BottomNavigationBarItem(
-      //       backgroundColor: Theme.of(context).canvasColor,
-      //       icon: Icon(Icons.home),
-      //       label: 'Home',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       backgroundColor: Theme.of(context).canvasColor,
-      //       icon: Icon(Icons.attach_money),
-      //       label: 'Investments',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       backgroundColor: Theme.of(context).canvasColor,
-      //       icon: Icon(Icons.file_copy_outlined),
-      //       label: 'Contracts',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       backgroundColor: Theme.of(context).canvasColor,
-      //       label: 'Settings',
-      //       icon: Icon(Icons.settings),
-      //     ),
-      //   ],
-      // ),
     );
   }
 }

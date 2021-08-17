@@ -17,7 +17,6 @@ import 'package:bcm_alpha_app/network/api_provider.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
-
   @override
   _DashboardState createState() => _DashboardState();
 }

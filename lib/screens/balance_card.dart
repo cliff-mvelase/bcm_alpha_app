@@ -49,8 +49,7 @@ class _BalanceCardState extends State<BalanceCard> {
                               color: LightColor.yellow.withAlpha(200)),
                         ),
                         Text(
-                          // ' ${walletData["total"]}',
-                          "12345",
+                          ' ${widget.walletData["total"]}',
                           style: GoogleFonts.mulish(
                               textStyle: Theme.of(context).textTheme.headline4,
                               fontSize: 35,
@@ -72,8 +71,8 @@ class _BalanceCardState extends State<BalanceCard> {
                               color: LightColor.lightNavyBlue),
                         ),
                         Text(
-                          // ' ${walletData["total_btc"]} ',
-                          "54321",
+                          ' ${widget.walletData["total_btc"]} ',
+                          // "54321",
                           style: TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.w500,
