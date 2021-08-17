@@ -6,7 +6,6 @@ import 'package:bcm_alpha_app/screens/investment_success_screen.dart';
 import 'package:bcm_alpha_app/screens/investments_screen.dart';
 import 'package:bcm_alpha_app/screens/latest_payouts_screen.dart';
 import 'package:bcm_alpha_app/screens/login_screen.dart';
-import 'package:bcm_alpha_app/screens/my_contracts.dart';
 import 'package:bcm_alpha_app/screens/packages_tabs.dart';
 import 'package:bcm_alpha_app/screens/payments_tabs.dart';
 import 'package:bcm_alpha_app/screens/register_screen.dart';
@@ -19,7 +18,6 @@ import 'package:bcm_alpha_app/screens/settings_screens/help.dart';
 import 'package:bcm_alpha_app/screens/settings_screens/kyc.dart';
 import 'package:bcm_alpha_app/screens/settings_screens/privacy_screen.dart';
 import 'package:bcm_alpha_app/screens/settings_screens/terms.dart';
-import 'package:bcm_alpha_app/screens/shared_contract.dart';
 import 'package:bcm_alpha_app/screens/shareholder_packages_screen.dart';
 import 'package:bcm_alpha_app/screens/tabs_screen.dart';
 import 'package:bcm_alpha_app/screens/theme/theme.dart';
@@ -34,48 +32,10 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'BCM Application',
-      // theme: ThemeData(
-      //   //primarySwatch: Colors.blue,
-      //   accentColor: Color.fromRGBO(255, 149, 0, 1),
-      //   canvasColor: Color.fromRGBO(31, 51, 78, 1),
-      //   buttonColor: Colors.white38,
-      //   inputDecorationTheme: const InputDecorationTheme(
-      //     //labelStyle: TextStyle(color: Colors.black),
-      //     hintStyle: TextStyle(color: Colors.white38),
-      //   ),
-      //   dividerTheme: DividerThemeData(color: Colors.white60),
-      //   textTheme: TextTheme(
-      //     bodyText1: TextStyle(color: Colors.white38),
-      //     bodyText2: TextStyle(
-      //       color: Colors.white38,
-      //     ),
-      //     button: TextStyle(color: Colors.white),
-      //     caption: TextStyle(color: Colors.white38),
-      //     headline1: TextStyle(color: Colors.white38),
-      //     headline2: TextStyle(color: Colors.white38),
-      //     headline3: TextStyle(
-      //         color: Colors.white, fontWeight: FontWeight.bold, fontSize: 25),
-      //     headline4: TextStyle(
-      //         color: Colors.white38, fontWeight: FontWeight.bold, fontSize: 25),
-      //     headline5: TextStyle(
-      //         color: Color.fromRGBO(255, 149, 0, 1),
-      //         fontWeight: FontWeight.bold,
-      //         fontSize: 18),
-      //     subtitle1: TextStyle(color: Colors.white, fontSize: 20),
-      //     // <-- that's the one
-      //     headline6: TextStyle(color: Colors.white, fontSize: 16),
-      //   ),
-      //   cardTheme: CardTheme(
-      //     color: Colors.white10,
-      //     elevation: 5,
-      //     margin: EdgeInsets.all(5),
-      //   ),
-      // ),
       home: LoginScreen(),
       theme: AppTheme.lightTheme,
       initialRoute: '/',

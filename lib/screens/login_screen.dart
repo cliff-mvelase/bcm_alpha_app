@@ -66,6 +66,7 @@ class _LoginScreenState extends State<LoginScreen> {
         .size;
 
     return Scaffold(
+      backgroundColor: Theme.of(context).primaryColor,
       body: isLoading
           ? Center(child: CircularProgressIndicator())
           : Container(
@@ -78,11 +79,8 @@ class _LoginScreenState extends State<LoginScreen> {
           left: 14,
           bottom: 8,
         ),
-        //child: Column(
         child: SingleChildScrollView(
           child: Column(
-            //mainAxisAlignment: MainAxisAlignment.end,
-            // crossAxisAlignment: CrossAxisAlignment.end,
             children: <Widget>[
               Container(
                 height: (mediaQuery.height) * 0.25,
@@ -96,29 +94,23 @@ class _LoginScreenState extends State<LoginScreen> {
                   decoration: InputDecoration(
                     icon: Icon(Icons.email),
                     labelText: 'Email',
-                    labelStyle: TextStyle(
-                      fontSize: 16.0,
-                      color: Colors.white70,
-                    ),
+                    labelStyle: TextStyle(color: Colors.white70, fontSize: 20.0, fontWeight: FontWeight.w300)
                   ),
                   controller: _nameController,
                   keyboardType: TextInputType.emailAddress,
-                style: TextStyle(fontSize: 24.0),
+                style: TextStyle(color: Colors.white60, fontSize: 20.0, fontWeight: FontWeight.w400)
               ),
               SizedBox( height: 18.0,),
               TextField(
                   decoration: InputDecoration(
                     icon: Icon(Icons.password),
                     labelText: 'Password',
-                    labelStyle: TextStyle(
-                      fontSize: 16.0,
-                      color: Colors.white70,
-                    ),
+                    labelStyle: TextStyle(color: Colors.white70, fontSize: 20.0, fontWeight: FontWeight.w300)
                   ),
                   obscureText: true,
                   controller: _passwordController,
                   keyboardType: TextInputType.visiblePassword,
-                  style: TextStyle(fontSize: 24.0),
+                  style: TextStyle(color: Colors.white60, fontSize: 20.0, fontWeight: FontWeight.w400)
               ),
               SizedBox(height: 45.0,),
               Container(
