@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:bcm_alpha_app/network/api_provider.dart';
 import 'package:bcm_alpha_app/screens/withdrawal_tabs.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -60,19 +61,15 @@ class _WithdrawalFiatScreenState extends State<WithdrawalFiatScreen> {
 
     var jsonResponse = jsonDecode(response.body);
     if (jsonResponse["data"]["status"] == "success") {
-      setState(() {
-        isLoading = true;
-        withdrawalTypeList = jsonResponse["data"]["withdrawtype"];
+      setState(()  {
+         isLoading = true;
+        withdrawalTypeList =  jsonResponse["data"]["withdrawtype"];
        countryList = jsonResponse["data"]["countries"];
       });
     } else {
       Toast.show("Something went wrong. Please try again", context,
           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
     }
-
-    setState(() {
-      isLoading = false;
-    });
   }
 
   Future<void> _withdrawBitcoin() async {
