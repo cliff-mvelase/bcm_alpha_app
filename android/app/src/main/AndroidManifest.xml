@@ -1,8 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.bcm_alpha_app">
+    package="com.bcm.bcm_alpha_app">
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="bcm_alpha_app"
-        android:icon="@mipmap/ic_launcher">
+        android:label="BCM"
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
@@ -38,4 +39,5 @@
             android:name="flutterEmbedding"
             android:value="2" />
     </application>
+
 </manifest>

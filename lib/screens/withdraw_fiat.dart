@@ -33,7 +33,7 @@ class _WithdrawalFiatScreenState extends State<WithdrawalFiatScreen> {
    late List  countryList;
    var  _country;
    var _withdrawalType;
-   late List withdrawalTypeList;
+    late List withdrawalTypeList;
 
   //Hiding and showing widgets depending on select withdraw type
   var showBankWidget = false;
