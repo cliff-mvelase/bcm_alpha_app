@@ -30,16 +30,16 @@ class _WithdrawScreenState extends State<WithdrawScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                 ToggleSwitch(
-                  initialLabelIndex: 0,
-                  minWidth: 160.0,
-                  activeFgColor: Colors.orangeAccent,
-                  activeBgColor: Colors.blueGrey,
-                  labels: ['Withdraw Bitcoin', 'Withdraw Fiat'],
-                  onToggle: (index) {
-                    print('switched to: $index');
-                  },
-                ),
+                //  ToggleSwitch(
+                //   initialLabelIndex: 0,
+                //   minWidth: 160.0,
+                //   activeFgColor: Colors.orangeAccent,
+                //   activeBgColor: Colors.blueGrey,
+                //   labels: ['Withdraw Bitcoin', 'Withdraw Fiat'],
+                //   onToggle: (index) {
+                //     print('switched to: $index');
+                //   },
+                // ),
 
                 Padding(
                   padding: EdgeInsets.all(8.0),
@@ -90,30 +90,30 @@ class _WithdrawScreenState extends State<WithdrawScreen> {
                 ),
                 Column(
                   children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        new Radio(
-                            value: 0,
-                            groupValue: _radioValue,
-                            onChanged: _handleRadioValueChange),
-                        Text(
-                          'Once-off',
-                          style: Theme.of(context).textTheme.headline4,
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: <Widget>[
-                        new Radio(
-                            value: 1,
-                            groupValue: _radioValue,
-                            onChanged: _handleRadioValueChange),
-                        Text(
-                          'Repeat Payment',
-                          style: Theme.of(context).textTheme.headline4,
-                        ),
-                      ],
-                    ),
+                    // Row(
+                    //   children: <Widget>[
+                    //     new Radio(
+                    //         value: 0,
+                    //         groupValue: _radioValue,
+                    //         // onChanged: _handleRadioValueChange),
+                    //     Text(
+                    //       'Once-off',
+                    //       style: Theme.of(context).textTheme.headline4,
+                    //     ),
+                    //   ],
+                    // ),
+                    // Row(
+                    //   children: <Widget>[
+                    //     new Radio(
+                    //         value: 1,
+                    //         groupValue: _radioValue,
+                    //         onChanged: _handleRadioValueChange),
+                    //     Text(
+                    //       'Repeat Payment',
+                    //       style: Theme.of(context).textTheme.headline4,
+                    //     ),
+                    //   ],
+                    // ),
                   ],
                 ),
                 SizedBox(

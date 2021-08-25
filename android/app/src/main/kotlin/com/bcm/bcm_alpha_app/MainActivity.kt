@@ -1,4 +1,4 @@
-package com.example.bcm_alpha_app
+package com.bcm.bcm_alpha_app
 
 import io.flutter.embedding.android.FlutterActivity
 
