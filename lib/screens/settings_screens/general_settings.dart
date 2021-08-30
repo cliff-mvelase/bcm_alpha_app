@@ -93,7 +93,7 @@ class _GeneralSettingsState extends State<GeneralSettings> {
                       Card(
                         child: Container(
                           alignment: Alignment.centerLeft,
-                          child: FlatButton(
+                          child: TextButton(
                             onPressed: () {},
                             child: Text(
                               'Preferred Currency',

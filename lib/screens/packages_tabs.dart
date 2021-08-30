@@ -5,7 +5,6 @@ import 'dart:io';
 import 'package:bcm_alpha_app/network/api_provider.dart';
 
 import 'package:flutter/material.dart';
-import 'package:bcm_alpha_app/screens/theme/light_color.dart';
 import 'package:bcm_alpha_app/screens/tile_text.dart';
 import 'package:bcm_alpha_app/widgets/investments_widgets/investment_contract.dart';
 import 'package:http/http.dart' as http;

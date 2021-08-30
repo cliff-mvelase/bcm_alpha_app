@@ -5,9 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:bcm_alpha_app/screens/theme/light_color.dart';
 import 'package:bcm_alpha_app/screens/tile_text.dart';
 
-import 'package:bcm_alpha_app/screens/withdraw_bitcoin.dart';
-import 'package:bcm_alpha_app/screens/withdraw_fiat.dart';
-
 class ContractsTabs extends StatefulWidget {
   static const routeName = 'ContractsTabs';
 

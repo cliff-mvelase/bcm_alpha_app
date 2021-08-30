@@ -1,10 +1,8 @@
-import 'package:bcm_alpha_app/screens/investments_screen.dart';
+
 import 'package:flutter/material.dart';
-import 'package:bcm_alpha_app/widgets/investments_widgets/investment_package.dart';
+
 import 'package:bcm_alpha_app/widgets/investments_widgets/investment_package_digital.dart';
-import 'package:bcm_alpha_app/widgets/investments_widgets/monthly_investment.dart';
-import 'package:bcm_alpha_app/widgets/investments_widgets/quartely_returns.dart';
-import 'package:bcm_alpha_app/widgets/investments_widgets/semi_annual_returns.dart';
+
 
 class InvestmentContract extends StatelessWidget {
   final dynamic investmentData;

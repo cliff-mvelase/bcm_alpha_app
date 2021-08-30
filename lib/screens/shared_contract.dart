@@ -1,15 +1,8 @@
-import 'dart:async';
-import 'dart:convert' as convert;
-import 'dart:io';
-
 import 'package:bcm_alpha_app/screens/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:bcm_alpha_app/screens/theme/light_color.dart';
 import 'package:bcm_alpha_app/screens/tile_text.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:http/http.dart' as http;
-import 'package:bcm_alpha_app/network/api_provider.dart';
 
 class SharedContract extends StatefulWidget {
   static const routeName = 'SharedContract';
@@ -132,19 +125,19 @@ class _SharedContractState extends State<SharedContract> {
         ));
   }
 
-  Widget _countButton(String text) {
-    return Material(
-        child: InkWell(
-            onTap: () {
-              print("Sfsf");
-            },
-            child: Container(
-              alignment: Alignment.center,
-              child: Text(
-                 text,
-              ),
-            )));
-  }
+  // Widget _countButton(String text) {
+  //   return Material(
+  //       child: InkWell(
+  //           onTap: () {
+  //             print("Sfsf");
+  //           },
+  //           child: Container(
+  //             alignment: Alignment.center,
+  //             child: Text(
+  //                text,
+  //             ),
+  //           )));
+  // }
 
   @override
   Widget build(BuildContext context) {

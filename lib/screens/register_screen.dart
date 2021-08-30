@@ -5,9 +5,9 @@ import 'package:bcm_alpha_app/network/api_provider.dart';
 import 'package:bcm_alpha_app/screens/login_screen.dart';
 import 'package:bcm_alpha_app/screens/tabs_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:toast/toast.dart';
 
 class RegisterScreen extends StatefulWidget {
   static const routeName = '/register';
@@ -51,8 +51,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
         Navigator.of(context).pushNamed(TabsScreen.routeName);
       });
     } else {
-      Toast.show("Something went wrong. Try again", context,
-          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+       Fluttertoast.showToast(
+        msg: "Something went wrong!!!",
+        toastLength: Toast.LENGTH_LONG,
+        gravity: ToastGravity.BOTTOM,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0
+    );
     }
   }
 
@@ -152,19 +158,24 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     Container(
                       alignment: Alignment.centerRight,
                       height: 100,
-                      child: FlatButton(
+                      child: TextButton(
                         onPressed: () {
                           if (passwordController.text !=
                               confirmPasswordController.text) {
-                            Toast.show("Password do not match", context,
-                                duration: Toast.LENGTH_LONG,
-                                gravity: Toast.BOTTOM);
+                       Fluttertoast.showToast(
+                            msg: "Something went wrong!!!",
+                            toastLength: Toast.LENGTH_LONG,
+                            gravity: ToastGravity.BOTTOM,
+                            backgroundColor: Colors.red,
+                            textColor: Colors.white,
+                            fontSize: 16.0
+                        );
                           } else {
                             register();
                           }
                         },
                         child: Text('Register'),
-                        textColor: Colors.white,
+                        
                       ),
                     ),
                     Container(
@@ -179,7 +190,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 color: Colors.white,
                               ),
                             ),
-                            FlatButton(
+                            TextButton(
                               onPressed: () {
                                 Navigator.of(context)
                                     .pushNamed(LoginScreen.routeName);
@@ -187,7 +198,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               child: Text(
                                 'Login',
                               ),
-                              textColor: Color.fromRGBO(255, 149, 0, 1),
+                              
                             ),
                           ]),
                     ),

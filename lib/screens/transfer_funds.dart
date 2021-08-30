@@ -4,9 +4,10 @@ import 'dart:io';
 import 'package:bcm_alpha_app/network/api_provider.dart';
 import 'package:bcm_alpha_app/screens/transfer_tabs.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:toast/toast.dart';
+
 
 class TransferFundsScreen extends StatefulWidget {
   @override
@@ -48,8 +49,14 @@ class _TransferFundsScreenState extends State<TransferFundsScreen> {
         Navigator.of(context).pushNamed(TransferTabs.routeName);
       });
     } else {
-      Toast.show("Something went wrong. Please try again", context,
-          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      Fluttertoast.showToast(
+        msg: "Something went wrong!!!",
+        toastLength: Toast.LENGTH_LONG,
+        gravity: ToastGravity.BOTTOM,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0
+    );
     }
   }
 
@@ -159,18 +166,27 @@ class _TransferFundsScreenState extends State<TransferFundsScreen> {
                                     onTap: (){
                                       if (amountBtcController == null || amountUsdController == null || recipientEmailController == null)
                                       {
-                                        Toast.show(
-                                            "Please provide all the details", context,
-                                            duration: Toast.LENGTH_LONG,
-                                            gravity: Toast.BOTTOM);
+                                          Fluttertoast.showToast(
+                                              msg: "Something went wrong!!!",
+                                              toastLength: Toast.LENGTH_LONG,
+                                              gravity: ToastGravity.BOTTOM,
+                                              backgroundColor: Colors.red,
+                                              textColor: Colors.white,
+                                              fontSize: 16.0
+                                          );
                                       }
                                       else
                                         {
                                         transfer();
-                                        Toast.show(
-                                            "Transfer successfully completed", context,
-                                            duration: Toast.LENGTH_LONG,
-                                            gravity: Toast.BOTTOM);
+                                        Fluttertoast.showToast(
+                                            msg: "Transfer Successful",
+                                            toastLength: Toast.LENGTH_SHORT,
+                                            gravity: ToastGravity.CENTER,
+                                            timeInSecForIosWeb: 1,
+                                            backgroundColor: Colors.red,
+                                            textColor: Colors.white,
+                                            fontSize: 16.0
+                                        );
                                         }
                                     },
                                     child: Text("SEND",

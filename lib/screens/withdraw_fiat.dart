@@ -3,12 +3,10 @@ import 'dart:io';
 
 import 'package:bcm_alpha_app/network/api_provider.dart';
 import 'package:bcm_alpha_app/screens/withdrawal_tabs.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:toast/toast.dart';
-
 
 class WithdrawalFiatScreen extends StatefulWidget {
   @override
@@ -67,8 +65,14 @@ class _WithdrawalFiatScreenState extends State<WithdrawalFiatScreen> {
        countryList = jsonResponse["data"]["countries"];
       });
     } else {
-      Toast.show("Something went wrong. Please try again", context,
-          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+       Fluttertoast.showToast(
+        msg: "Something went wrong!!!",
+        toastLength: Toast.LENGTH_LONG,
+        gravity: ToastGravity.BOTTOM,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0
+    );
     }
   }
 
@@ -108,8 +112,15 @@ class _WithdrawalFiatScreenState extends State<WithdrawalFiatScreen> {
         showAlertDialog(jsonResponse["data"]["message"]);
       });
     } else {
-      Toast.show("Something went wrong. Please try again", context,
-          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      Fluttertoast.showToast(
+        msg: "Something went wrong",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0
+    );
     }
   }
 
@@ -137,8 +148,14 @@ class _WithdrawalFiatScreenState extends State<WithdrawalFiatScreen> {
           amountBtcController.text = jsonResponse["data"]["data"].toString();
         });
       } else {
-        Toast.show("Something went wrong. Please try again", context,
-            duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+          Fluttertoast.showToast(
+        msg: "Something went wrong!!!",
+        toastLength: Toast.LENGTH_LONG,
+        gravity: ToastGravity.BOTTOM,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0
+    );
       }
     }
   }

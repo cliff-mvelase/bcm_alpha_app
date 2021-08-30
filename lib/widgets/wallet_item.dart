@@ -203,7 +203,7 @@ class _WalletItemState extends State<WalletItem> {
                     //   child: Text('Deposit',
                     //       style: Theme.of(context).textTheme.headline5),
                     // ),
-                    FlatButton(
+                    TextButton(
                       onPressed: () {
                         Navigator.of(context)
                             .pushNamed(WithdrawalsTabs.routeName);
@@ -211,7 +211,7 @@ class _WalletItemState extends State<WalletItem> {
                       child: Text('Withdraw',
                           style: Theme.of(context).textTheme.headline5),
                     ),
-                    FlatButton(
+                    TextButton(
                       onPressed: () {
                         Navigator.of(context).pushNamed(TransferTabs.routeName);
                       },

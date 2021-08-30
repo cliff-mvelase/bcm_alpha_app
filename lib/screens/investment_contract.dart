@@ -1,15 +1,8 @@
-import 'dart:async';
-import 'dart:convert' as convert;
-import 'dart:io';
-
 import 'package:bcm_alpha_app/screens/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:bcm_alpha_app/screens/theme/light_color.dart';
 import 'package:bcm_alpha_app/screens/tile_text.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:http/http.dart' as http;
-import 'package:bcm_alpha_app/network/api_provider.dart';
 
 class InvestmentContract extends StatefulWidget {
   static const routeName = 'InvestmentContract';
@@ -103,47 +96,47 @@ class _InvestmentContractState extends State<InvestmentContract> {
     );
   }
 
-  Widget _icon(IconData icon, bool isBackground) {
-    return Container(
-        margin: EdgeInsets.all(10),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-              decoration: BoxDecoration(
-                  color: isBackground
-                      ? LightColor.lightGrey
-                      : Theme.of(context).backgroundColor,
-                  borderRadius: BorderRadius.all(Radius.circular(8))),
-              child: Icon(icon),
-            ),
-            !isBackground
-                ? SizedBox()
-                : Text(
-              "Change",
-              style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold,
-                  color: LightColor.navyBlue2),
-            )
-          ],
-        ));
-  }
+  // Widget _icon(IconData icon, bool isBackground) {
+  //   return Container(
+  //       margin: EdgeInsets.all(10),
+  //       child: Column(
+  //         mainAxisAlignment: MainAxisAlignment.center,
+  //         children: <Widget>[
+  //           Container(
+  //             padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+  //             decoration: BoxDecoration(
+  //                 color: isBackground
+  //                     ? LightColor.lightGrey
+  //                     : Theme.of(context).backgroundColor,
+  //                 borderRadius: BorderRadius.all(Radius.circular(8))),
+  //             child: Icon(icon),
+  //           ),
+  //           !isBackground
+  //               ? SizedBox()
+  //               : Text(
+  //             "Change",
+  //             style: TextStyle(
+  //                 fontSize: 12,
+  //                 fontWeight: FontWeight.bold,
+  //                 color: LightColor.navyBlue2),
+  //           )
+  //         ],
+  //       ));
+  // }
 
-  Widget _countButton(String text) {
-    return Material(
-        child: InkWell(
-            onTap: () {
-              print("Sfsf");
-            },
-            child: Container(
-              alignment: Alignment.center,
-              child: Text(
-                text,
-              ),
-            )));
-  }
+  // Widget _countButton(String text) {
+  //   return Material(
+  //       child: InkWell(
+  //           onTap: () {
+  //             print("Sfsf");
+  //           },
+  //           child: Container(
+  //             alignment: Alignment.center,
+  //             child: Text(
+  //               text,
+  //             ),
+  //           )));
+  // }
 
   @override
   Widget build(BuildContext context) {

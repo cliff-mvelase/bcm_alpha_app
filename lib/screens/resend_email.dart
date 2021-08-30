@@ -58,12 +58,12 @@ class ResendPassword extends StatelessWidget {
                   ),
                 ),
               ),
-              FlatButton(
+              TextButton(
                 onPressed: () {
                   Navigator.of(context).pushNamed(ResendPassword.routeName);
                 },
                 child: Text('Click here to request another'),
-                textColor: Color.fromRGBO(255, 149, 0, 1),
+              
               ),
             ],
           ),

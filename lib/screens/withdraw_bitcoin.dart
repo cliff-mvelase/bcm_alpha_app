@@ -23,35 +23,35 @@ class _WithdrawBitcoinScreenState extends State<WithdrawBitcoinScreen> {
   @override
   Widget build(BuildContext context) {
 
-    void _convertUsdToBtc(String? text) async {
-      final SharedPreferences sharedPrefs = await SharedPreferences.getInstance();
-      var token = sharedPrefs.getString("token") ?? null;
+    // void _convertUsdToBtc(String? text) async {
+    //   final SharedPreferences sharedPrefs = await SharedPreferences.getInstance();
+    //   var token = sharedPrefs.getString("token") ?? null;
 
-      if (amountFiatController.text != null ) {
-        var response = await http.post(
-          Uri.parse(ApiProvider.api + 'covertusdtobtc'),
-          headers: {
-            HttpHeaders.contentTypeHeader: "application/json",
-            HttpHeaders.acceptHeader: "application/json",
-            HttpHeaders.authorizationHeader: "Bearer $token"
-          },
-          body: jsonEncode(<String, String>{
-            'amount_usd': amountFiatController.text,
-          }),
-        );
+    //   if (amountFiatController.text != null ) {
+    //     var response = await http.post(
+    //       Uri.parse(ApiProvider.api + 'covertusdtobtc'),
+    //       headers: {
+    //         HttpHeaders.contentTypeHeader: "application/json",
+    //         HttpHeaders.acceptHeader: "application/json",
+    //         HttpHeaders.authorizationHeader: "Bearer $token"
+    //       },
+    //       body: jsonEncode(<String, String>{
+    //         'amount_usd': amountFiatController.text,
+    //       }),
+    //     );
 
-        var jsonResponse = jsonDecode(response.body);
-        if (jsonResponse["data"]["status"] == "success") {
-          setState(() {
-            isLoading = true;
-            amountBtcController.text = jsonResponse["data"]["data"].toString();
-          });
-        } else {
-          Toast.show("Something went wrong. Please try again", context,
-              duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
-        }
-      }
-    }
+    //     var jsonResponse = jsonDecode(response.body);
+    //     if (jsonResponse["data"]["status"] == "success") {
+    //       setState(() {
+    //         isLoading = true;
+    //         amountBtcController.text = jsonResponse["data"]["data"].toString();
+    //       });
+    //     } else {
+    //       Toast.show("Something went wrong. Please try again", context,
+    //           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+    //     }
+    //   }
+    // }
 
     Future<void> withdrawBitcoin() async {
       setState(() {

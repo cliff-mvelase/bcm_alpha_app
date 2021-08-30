@@ -95,7 +95,7 @@ class _AccountDetailsState extends State<AccountDetails> {
             content: Text(message,
                 style: TextStyle(color: Colors.black, fontSize: 16)),
             actions: <Widget>[
-              FlatButton(
+              TextButton(
                 onPressed: () {
                   //  Navigator.of(context).pushNamed(SettingsScreen.routeName);
                   Navigator.of(context).pushNamed(TabsScreen.routeName);
@@ -197,7 +197,7 @@ class _AccountDetailsState extends State<AccountDetails> {
                           ),
                           Container(
                             alignment: Alignment.center,
-                            child: FlatButton(
+                            child: TextButton(
                               onPressed: () {
                                 if (passwordController.text !=
                                     confirmPasswordController.text) {

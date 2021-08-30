@@ -1,16 +1,13 @@
 import 'dart:convert' as convert;
 import 'dart:convert';
-import 'dart:developer';
 
-import 'package:bcm_alpha_app/network/api_provider.dart';
 import 'package:bcm_alpha_app/screens/register_screen.dart';
 import 'package:bcm_alpha_app/screens/reset_password.dart';
 import 'package:bcm_alpha_app/screens/tabs_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:toast/toast.dart';
-import 'package:bcm_alpha_app/screens/theme/light_color.dart';
 
 class LoginScreen extends StatefulWidget {
   LoginScreen({Key ? key}) : super(key: key);
@@ -24,6 +21,15 @@ class _LoginScreenState extends State<LoginScreen> {
   final _passwordController = TextEditingController();
   bool isLoading = false;
   static var uri = 'http://140.82.39.29/api/login';
+
+
+    void showColoredToast() {
+    Fluttertoast.showToast(
+        msg: "This is Colored Toast",
+        toastLength: Toast.LENGTH_SHORT,
+  
+    );
+  }
 
   Future<void> userLogin() async {
     setState(() {
@@ -54,8 +60,15 @@ class _LoginScreenState extends State<LoginScreen> {
       setState(() {
         isLoading = false;
       });
-      Toast.show("Incorrect email or password", context,
-          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+
+      Fluttertoast.showToast(
+        msg: "Invoice Email or Password !!!",
+        toastLength: Toast.LENGTH_LONG,
+        gravity: ToastGravity.BOTTOM,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0
+    );
     }
   }
 

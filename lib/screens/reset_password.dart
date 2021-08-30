@@ -1,13 +1,14 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:bcm_alpha_app/network/api_provider.dart';
+
 import 'package:bcm_alpha_app/screens/login_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 
-import 'package:toast/toast.dart';
+
 
 class ResetPassword extends StatefulWidget {
   static const routeName = '/reset_password';
@@ -129,8 +130,14 @@ class _ResetPasswordState extends State<ResetPassword> {
                     if (emailController.text != "") {
                       resetPassword();
                     } else {
-                      Toast.show("Make sure email input is not empty", context,
-                          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+                        Fluttertoast.showToast(
+                          msg: "Something went wrong!!!",
+                          toastLength: Toast.LENGTH_LONG,
+                          gravity: ToastGravity.BOTTOM,
+                          backgroundColor: Colors.red,
+                          textColor: Colors.white,
+                          fontSize: 16.0
+                      );
                     }
                   },
                   child: Text('Reset'),

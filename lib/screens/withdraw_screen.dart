@@ -7,14 +7,14 @@ class WithdrawScreen extends StatefulWidget {
 }
 
 class _WithdrawScreenState extends State<WithdrawScreen> {
-  int _radioValue = -1;
+
   bool isSwitched = false;
-  void _handleRadioValueChange(int value) {
-    setState(() {
-      _radioValue = value;
-      //CODE TO SEND THE VALUE
-    });
-  }
+  // void _handleRadioValueChange(int value) {
+  //   setState(() {
+  //     _radioValue = value;
+  //     //CODE TO SEND THE VALUE
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -122,7 +122,7 @@ class _WithdrawScreenState extends State<WithdrawScreen> {
                 Container(
                   alignment: Alignment.center,
                   //height: 100,
-                  child: FlatButton(
+                  child: TextButton(
                     onPressed: () {
                       //Navigator.of(context).pushNamed(TabsScreen.routeName);
                     },
