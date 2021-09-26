@@ -22,15 +22,6 @@ class _LoginScreenState extends State<LoginScreen> {
   bool isLoading = false;
   static var uri = 'http://140.82.39.29/api/login';
 
-
-    void showColoredToast() {
-    Fluttertoast.showToast(
-        msg: "This is Colored Toast",
-        toastLength: Toast.LENGTH_SHORT,
-  
-    );
-  }
-
   Future<void> userLogin() async {
     setState(() {
       isLoading = true;
@@ -50,16 +41,18 @@ class _LoginScreenState extends State<LoginScreen> {
       isLoading = false;
     });
     var jsonResponse = convert.jsonDecode(response.body);
-    if (jsonResponse["data"]["status"] == "success") {
-      setState(() {
-        isLoading = false;
-      });
+    if (jsonResponse["data"]["status"] == "success")
+    {
+      // setState(() {
+      //   isLoading = false;
+      // });
       sharedPrefs.setString("token", jsonResponse["data"]["token"]);
       Navigator.of(context).pushNamed(TabsScreen.routeName);
-    } else {
-      setState(() {
-        isLoading = false;
-      });
+    }
+    else {
+      // setState(() {
+      //   isLoading = false;
+      // });
 
       Fluttertoast.showToast(
         msg: "Invoice Email or Password !!!",
@@ -68,15 +61,13 @@ class _LoginScreenState extends State<LoginScreen> {
         backgroundColor: Colors.red,
         textColor: Colors.white,
         fontSize: 16.0
-    );
+      );
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final mediaQuery = MediaQuery
-        .of(context)
-        .size;
+    final mediaQuery = MediaQuery.of(context).size;
 
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,

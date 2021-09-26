@@ -22,122 +22,111 @@ class _TabsScreenState extends State<TabsScreen> {
 
   @override
   void initState() {
+    super.initState();
     _pages = [
       { 'page': Dashboard(), },
       { 'page': InvestmentsScreen(),},
       { 'page': ContractsOptionsScreen(),},
       { 'page': SettingsScreen(),}
     ];
-    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: Drawer(
-  // Add a ListView to the drawer. This ensures the user can scroll
-  // through the options in the drawer if there isn't enough vertical
-  // space to fit everything.
-  child: ListView(
-    // Important: Remove any padding from the ListView.
-    padding: EdgeInsets.zero,
-    children: [
-      // const DrawerHeader(
-      //   decoration: BoxDecoration(
-      //     color: Colors.blue,
-      //   ),
-      //   child: Text('Drawer Header'),
-      // ),
-      UserAccountsDrawerHeader(
-          accountName: Text( "John Doe",
-            style: GoogleFonts.mulish(
-                textStyle: Theme.of(context).textTheme.headline4,
-                fontSize: 20,
-                fontWeight: FontWeight.w600,
-                color: Colors.white54)),
-          accountEmail: Text( "johndoe@gmail.com",
-            style: GoogleFonts.mulish(
-                textStyle: Theme.of(context).textTheme.headline4,
-                fontSize: 20,
-                fontWeight: FontWeight.w600,
-                color: Colors.blueGrey[700])),
-          currentAccountPicture: CircleAvatar(
-            backgroundColor:
-                Theme.of(context).platform == TargetPlatform.iOS
-                    ? Colors.blue
-                    : Colors.white,
-            child: Text(
-              "J",
-              style: TextStyle(fontSize: 40.0),
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            UserAccountsDrawerHeader(
+                accountName: Text( "user",
+                  style: GoogleFonts.mulish(
+                      textStyle: Theme.of(context).textTheme.headline4,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white54)),
+                accountEmail: Text( "user@gmail.com",
+                  style: GoogleFonts.mulish(
+                      textStyle: Theme.of(context).textTheme.headline4,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.blueGrey[700])),
+                currentAccountPicture: CircleAvatar(
+                  backgroundColor:
+                      Theme.of(context).platform == TargetPlatform.iOS
+                          ? Colors.blue
+                          : Colors.white,
+                  child: Text(
+                    "J",
+                    style: TextStyle(fontSize: 40.0),
+                  ),
+                ),
+              ),
+            ListTile(
+              leading: Icon(Icons.share),
+              title:  Text( "Contracts",
+                  style: GoogleFonts.mulish(
+                      textStyle: Theme.of(context).textTheme.headline4,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.blueGrey[700])),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => Contracts()));
+              },
             ),
-          ),
+            ListTile(
+                leading: Icon(Icons.inventory),
+                title:  Text( "Inventory",
+                  style: GoogleFonts.mulish(
+                      textStyle: Theme.of(context).textTheme.headline4,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.blueGrey[700])),
+                onTap: () {
+                  Navigator.of(context).pop();
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (BuildContext context) => Contracts()));
+                },
+            ),
+            ListTile(
+                leading: Icon(Icons.payment),
+                title:  Text( "Payments",
+                  style: GoogleFonts.mulish(
+                      textStyle: Theme.of(context).textTheme.headline4,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.blueGrey[700])),
+                onTap: () {
+                  Navigator.of(context).pop();
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (BuildContext context) => Contracts()));
+                },
+            ),
+            ListTile(
+                leading: Icon(Icons.people),
+                title:  Text( "Packages",
+                  style: GoogleFonts.mulish(
+                      textStyle: Theme.of(context).textTheme.headline4,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.blueGrey[700])),
+                onTap: () {
+                  Navigator.of(context).pop();
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (BuildContext context) => Contracts()));
+                },
+            ),
+          ],
         ),
-      ListTile(
-        leading: Icon(Icons.share),
-        title:  Text( "Contracts",
-            style: GoogleFonts.mulish(
-                textStyle: Theme.of(context).textTheme.headline4,
-                fontSize: 20,
-                fontWeight: FontWeight.w600,
-                color: Colors.blueGrey[700])),
-        onTap: () {
-          Navigator.of(context).pop();
-          Navigator.of(context).push(MaterialPageRoute(
-              builder: (BuildContext context) => Contracts()));
-        },
       ),
-        ListTile(
-          leading: Icon(Icons.inventory),
-          title:  Text( "Inventory",
-            style: GoogleFonts.mulish(
-                textStyle: Theme.of(context).textTheme.headline4,
-                fontSize: 20,
-                fontWeight: FontWeight.w600,
-                color: Colors.blueGrey[700])),
-          onTap: () {
-            Navigator.of(context).pop();
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: (BuildContext context) => Contracts()));
-          },
-      ),
-         ListTile(
-          leading: Icon(Icons.payment),
-          title:  Text( "Payments",
-            style: GoogleFonts.mulish(
-                textStyle: Theme.of(context).textTheme.headline4,
-                fontSize: 20,
-                fontWeight: FontWeight.w600,
-                color: Colors.blueGrey[700])),
-          onTap: () {
-            Navigator.of(context).pop();
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: (BuildContext context) => Contracts()));
-          },
-      ),
-         ListTile(
-          leading: Icon(Icons.people),
-          title:  Text( "Packages",
-            style: GoogleFonts.mulish(
-                textStyle: Theme.of(context).textTheme.headline4,
-                fontSize: 20,
-                fontWeight: FontWeight.w600,
-                color: Colors.blueGrey[700])),
-          onTap: () {
-            Navigator.of(context).pop();
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: (BuildContext context) => Contracts()));
-          },
-      ),
-    ],
-  ),
-),
       appBar: AppBar(
         title: Padding(
           padding: EdgeInsets.fromLTRB(220.0, 0, 0, 0),
           child: Image.asset('assets/images/LogoSolid.png',
               fit: BoxFit.cover, height: 35.0),
         ),
-        // leading: new Container(),
       ),
       body: isLoading ? Center(child: CircularProgressIndicator()) : _pages[_selectedPageIndex]['page'],
       bottomNavigationBar: BottomNavigation(),

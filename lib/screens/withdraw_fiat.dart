@@ -46,6 +46,9 @@ class _WithdrawalFiatScreenState extends State<WithdrawalFiatScreen> {
   }
 
   Future<void> _loadWithdrawalType() async {
+    setState(() {
+      isLoading = true;
+    });
     final SharedPreferences sharedPrefs = await SharedPreferences.getInstance();
     var token = sharedPrefs.getString("token");
     var response = await http.get(
@@ -60,19 +63,21 @@ class _WithdrawalFiatScreenState extends State<WithdrawalFiatScreen> {
     var jsonResponse = jsonDecode(response.body);
     if (jsonResponse["data"]["status"] == "success") {
       setState(()  {
-         isLoading = true;
         withdrawalTypeList =  jsonResponse["data"]["withdrawtype"];
-       countryList = jsonResponse["data"]["countries"];
+        countryList = jsonResponse["data"]["countries"];
+        isLoading = false;
       });
-    } else {
-       Fluttertoast.showToast(
-        msg: "Something went wrong!!!",
-        toastLength: Toast.LENGTH_LONG,
-        gravity: ToastGravity.BOTTOM,
-        backgroundColor: Colors.red,
-        textColor: Colors.white,
-        fontSize: 16.0
-    );
+    }
+    else
+      {
+         Fluttertoast.showToast(
+          msg: "Something went wrong!!!",
+          toastLength: Toast.LENGTH_LONG,
+          gravity: ToastGravity.BOTTOM,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 16.0
+       );
     }
   }
 
@@ -107,9 +112,9 @@ class _WithdrawalFiatScreenState extends State<WithdrawalFiatScreen> {
     var jsonResponse = jsonDecode(response.body);
     if (jsonResponse["data"]["status"] == "success") {
       setState(() {
-        isLoading = false;
         sharedPrefs.setString("token", jsonResponse["data"]["token"]);
         showAlertDialog(jsonResponse["data"]["message"]);
+        isLoading = true;
       });
     } else {
       Fluttertoast.showToast(
@@ -125,6 +130,9 @@ class _WithdrawalFiatScreenState extends State<WithdrawalFiatScreen> {
   }
 
   void _convertUsdToBtc(String? text) async {
+    setState(() {
+      isLoading = true;
+    });
     final SharedPreferences sharedPrefs = await SharedPreferences.getInstance();
     var token = sharedPrefs.getString("token") ?? null;
 
@@ -144,8 +152,8 @@ class _WithdrawalFiatScreenState extends State<WithdrawalFiatScreen> {
       var jsonResponse = jsonDecode(response.body);
       if (jsonResponse["data"]["status"] == "success") {
         setState(() {
-          isLoading = true;
           amountBtcController.text = jsonResponse["data"]["data"].toString();
+          isLoading = false;
         });
       } else {
           Fluttertoast.showToast(
@@ -171,7 +179,7 @@ class _WithdrawalFiatScreenState extends State<WithdrawalFiatScreen> {
               color: Theme.of(context).primaryColor,
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
-                child: Column(
+                child: isLoading ? Center(child: CircularProgressIndicator()): Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(

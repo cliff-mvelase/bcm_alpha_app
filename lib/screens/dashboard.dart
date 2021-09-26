@@ -39,6 +39,7 @@ class _DashboardState extends State<Dashboard> {
       HttpHeaders.acceptHeader: "application/json",
       HttpHeaders.authorizationHeader: "Bearer $token"
     });
+
     var jsonResponse = convert.jsonDecode(response.body);
     if (jsonResponse["data"]["status"] == "success") {
       setState(() {
@@ -54,8 +55,8 @@ class _DashboardState extends State<Dashboard> {
 
   @override
   void initState() {
-    getDashboardData();
     super.initState();
+    getDashboardData();
   }
 
   Widget _appBar() {
@@ -179,7 +180,7 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
+        body: isLoading ? Center(child: CircularProgressIndicator()) : SafeArea(
             child: SingleChildScrollView(
               child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 20),

@@ -20,11 +20,6 @@ class _WithdrawalsTabsState extends State<WithdrawalsTabs> with SingleTickerProv
       child: Scaffold(
           backgroundColor: Theme.of(context).primaryColor,
           appBar: AppBar(
-            // title: Padding(
-            //   padding: EdgeInsets.fromLTRB(220.0, 0, 0, 0),
-            //   child: Image.asset('assets/images/LogoSolid.png',
-            //       fit: BoxFit.cover, height: 35.0),
-            // ),
             bottom: const TabBar(
               tabs: [
                 Tab(child: TitleText(text: "Fiat", color: Colors.white70),),
