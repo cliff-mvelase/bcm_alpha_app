@@ -4,6 +4,7 @@ import 'package:bcm_alpha_app/screens/dashboard.dart';
 import 'package:bcm_alpha_app/screens/my_contracts.dart';
 import 'package:bcm_alpha_app/screens/settings_screen.dart';
 import 'package:bcm_alpha_app/screens/investments_screen.dart';
+import 'package:bcm_alpha_app/screens/theme/light_color.dart';
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
@@ -39,28 +40,37 @@ class _TabsScreenState extends State<TabsScreen> {
           padding: EdgeInsets.zero,
           children: [
             UserAccountsDrawerHeader(
-                accountName: Text( "user",
-                  style: GoogleFonts.mulish(
-                      textStyle: Theme.of(context).textTheme.headline4,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white54)),
-                accountEmail: Text( "user@gmail.com",
-                  style: GoogleFonts.mulish(
-                      textStyle: Theme.of(context).textTheme.headline4,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.blueGrey[700])),
-                currentAccountPicture: CircleAvatar(
-                  backgroundColor:
-                      Theme.of(context).platform == TargetPlatform.iOS
-                          ? Colors.blue
-                          : Colors.white,
-                  child: Text(
-                    "J",
-                    style: TextStyle(fontSize: 40.0),
-                  ),
+              currentAccountPicture: Center(
+                child: CircleAvatar(
+                  radius: 45.0,
+                  backgroundColor: LightColor.navyBlue1,
+                  child: Image.asset('assets/images/LogoSolid.png'),
                 ),
+              ),
+                accountName: Text(""),
+                accountEmail: Text(""),
+                // accountName: Text( "user",
+                //   style: GoogleFonts.mulish(
+                //       textStyle: Theme.of(context).textTheme.headline4,
+                //       fontSize: 20,
+                //       fontWeight: FontWeight.w600,
+                //       color: Colors.white54)),
+                // accountEmail: Text( "user@gmail.com",
+                //   style: GoogleFonts.mulish(
+                //       textStyle: Theme.of(context).textTheme.headline4,
+                //       fontSize: 20,
+                //       fontWeight: FontWeight.w600,
+                //       color: Colors.blueGrey[700])),
+                // currentAccountPicture: CircleAvatar(
+                //   backgroundColor:
+                //       Theme.of(context).platform == TargetPlatform.iOS
+                //           ? Colors.blue
+                //           : Colors.white,
+                //   child: Text(
+                //     "J",
+                //     style: TextStyle(fontSize: 40.0),
+                //   ),
+                // ),
               ),
             ListTile(
               leading: Icon(Icons.share),
@@ -122,6 +132,7 @@ class _TabsScreenState extends State<TabsScreen> {
         ),
       ),
       appBar: AppBar(
+        backgroundColor: LightColor.navyBlue1,
         title: Padding(
           padding: EdgeInsets.fromLTRB(220.0, 0, 0, 0),
           child: Image.asset('assets/images/LogoSolid.png',

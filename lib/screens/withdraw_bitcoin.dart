@@ -18,6 +18,7 @@ class _WithdrawBitcoinScreenState extends State<WithdrawBitcoinScreen> {
   var amountBtcController = TextEditingController();
   var amountFiatController = TextEditingController();
   var bitcoinAddressController = TextEditingController();
+  var email = TextEditingController();
   var _value = false;
 
   @override
@@ -180,7 +181,7 @@ class _WithdrawBitcoinScreenState extends State<WithdrawBitcoinScreen> {
                               },
                             ),
                             Expanded(
-                                child: Text(
+                                child: const Text(
                               "I have read and and agree with the transaction terms!.",
                                   style: TextStyle(
                                       fontSize: 15,

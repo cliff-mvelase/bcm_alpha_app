@@ -280,8 +280,7 @@ class _WithdrawalFiatScreenState extends State<WithdrawalFiatScreen> {
                                               child: new Text(item),
                                               value: item.toString(),
                                             );
-                                          }).toList()
-                                          ,
+                                          }).toList(),
                                     ),
                                   ),
                                 ),
@@ -439,7 +438,7 @@ class _WithdrawalFiatScreenState extends State<WithdrawalFiatScreen> {
                     SizedBox(
                       height: 35,
                     ),
-                    Text(
+                    const Text(
                       'Transaction Terms:  Transactions approval may take up to 2 working Days. During this time reconciliations are done to safe complete your request, kindly be patient.',
                       style: TextStyle(
                           fontSize: 15,
@@ -454,7 +453,7 @@ class _WithdrawalFiatScreenState extends State<WithdrawalFiatScreen> {
                       children: <Widget>[
                         Row(
                           children: <Widget>[
-                            Checkbox(
+                           Checkbox(
                               value: _checkboxValue,
                               onChanged: (bool? newValue) {
                                 setState(() {
@@ -463,7 +462,7 @@ class _WithdrawalFiatScreenState extends State<WithdrawalFiatScreen> {
                               },
                             ),
                             Expanded(
-                                child: Text(
+                                child: const Text(
                                   "I have read and and agree with the transaction terms!.",
                                   style: TextStyle(
                                       fontSize: 15,
@@ -477,7 +476,7 @@ class _WithdrawalFiatScreenState extends State<WithdrawalFiatScreen> {
                         ),
                         Container(
                             alignment: Alignment.center,
-                            child:  Expanded(
+                            child: Expanded(
                               child: Container(
                                   padding:
                                   EdgeInsets.symmetric(horizontal: 5, vertical: 8),
@@ -504,20 +503,7 @@ class _WithdrawalFiatScreenState extends State<WithdrawalFiatScreen> {
                                     ],
                                   )),
                             )
-                        ),
-                        // Container(
-                        //   alignment: Alignment.center,
-                        //   //height: 100,
-                        //   child: TextButton(
-                        //     onPressed: () {
-                        //       _withdrawBitcoin();
-                        //     },
-                        //     child: Text(
-                        //       'Submit',
-                        //       style: Theme.of(context).textTheme.headline6,
-                        //     ),
-                        //   ),
-                        // ),
+                        )
                       ],
                     ),
                     SizedBox(

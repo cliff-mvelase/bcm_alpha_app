@@ -19,6 +19,7 @@ class _PaymentsTabsState extends State<PaymentsTabs> with SingleTickerProviderSt
       child: Scaffold(
           backgroundColor: Theme.of(context).primaryColor,
           appBar: AppBar(
+            backgroundColor: LightColor.navyBlue1,
             bottom: const TabBar(
               tabs: [
                 Tab( child: TitleText(text: "Payouts", color: Colors.white70,), ),

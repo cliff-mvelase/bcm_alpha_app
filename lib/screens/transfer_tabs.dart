@@ -31,6 +31,7 @@ class _TransferTabsState extends State<TransferTabs> with SingleTickerProviderSt
       child: Scaffold(
           backgroundColor: Theme.of(context).primaryColor,
         appBar: AppBar(
+          backgroundColor: LightColor.navyBlue1,
           bottom: const TabBar(
             tabs: [
               Tab( text: 'Transfers',),

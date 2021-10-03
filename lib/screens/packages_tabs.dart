@@ -3,6 +3,7 @@ import 'dart:convert' as convert;
 import 'dart:io';
 
 import 'package:bcm_alpha_app/network/api_provider.dart';
+import 'package:bcm_alpha_app/screens/theme/light_color.dart';
 
 import 'package:flutter/material.dart';
 import 'package:bcm_alpha_app/screens/tile_text.dart';
@@ -62,6 +63,7 @@ class _PackagesTabsState extends State<PackagesTabs> with SingleTickerProviderSt
       child: Scaffold(
           backgroundColor: Theme.of(context).primaryColor,
           appBar: AppBar(
+            backgroundColor: LightColor.navyBlue1,
             bottom: const TabBar(
               tabs: [
                 Tab( child: TitleText(text: "Investment Packages", color: Colors.white70,), ),

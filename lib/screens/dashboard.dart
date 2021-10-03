@@ -64,7 +64,7 @@ class _DashboardState extends State<Dashboard> {
       children: <Widget>[
         SizedBox(width: 15),
         TitleText(text: "Hello,"),
-        Text(' User,',
+        Text(' Customer,',
             style: GoogleFonts.mulish(
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
