@@ -187,7 +187,7 @@ class _WithdrawalFiatScreenState extends State<WithdrawalFiatScreen> {
                       style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w300,
-                          color: Colors.white70),
+                          color: Colors.white),
                     ),
                     TextField(
                       keyboardType: TextInputType.number,

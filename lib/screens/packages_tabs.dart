@@ -69,7 +69,7 @@ class _PackagesTabsState extends State<PackagesTabs> with SingleTickerProviderSt
                 Tab( child: TitleText(text: "Investment Packages", color: Colors.white70,), ),
               ],
             ),
-            title: const Text('Withdrawals'),
+            title: const Text('Investments'),
           ),
           body: Container(
             height: MediaQuery.of(context).size.height,

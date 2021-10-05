@@ -23,9 +23,7 @@ class _InvestmentContractState extends State<InvestmentContract> {
   @override
   void initState() {
     super.initState();
-
   }
-
 
   Align _buttonWidget() {
     return Align(
