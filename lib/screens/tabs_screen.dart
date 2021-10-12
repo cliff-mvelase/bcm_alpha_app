@@ -1,6 +1,7 @@
 import 'package:bcm_alpha_app/screens/bottom_navigation_bar.dart';
 import 'package:bcm_alpha_app/screens/contracts_options_screen.dart';
 import 'package:bcm_alpha_app/screens/dashboard.dart';
+import 'package:bcm_alpha_app/screens/login_screen.dart';
 import 'package:bcm_alpha_app/screens/my_contracts.dart';
 import 'package:bcm_alpha_app/screens/settings_screen.dart';
 import 'package:bcm_alpha_app/screens/investments_screen.dart';
@@ -127,6 +128,22 @@ class _TabsScreenState extends State<TabsScreen> {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (BuildContext context) => Contracts()));
                 },
+            ),
+            SizedBox(height: 300),
+            ListTile(
+              leading: Icon(Icons.logout_outlined),
+              title:  Text( "Logout",
+                  style: GoogleFonts.mulish(
+                      textStyle: Theme.of(context).textTheme.headline4,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.blueGrey[700])),
+              onTap: () {
+                isLoading = false;
+                Navigator.of(context).pop();
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => LoginScreen()));
+              },
             ),
           ],
         ),
