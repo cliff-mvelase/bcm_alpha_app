@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:bcm_alpha_app/network/api_provider.dart';
+import 'package:bcm_alpha_app/screens/dashboard.dart';
 import 'package:bcm_alpha_app/screens/login_screen.dart';
-import 'package:bcm_alpha_app/screens/tabs_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
@@ -48,7 +48,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       setState(() {
         isLoading = false;
         sharedPrefs.setString("token", jsonResponse["data"]["token"]);
-        Navigator.of(context).pushNamed(TabsScreen.routeName);
+        Navigator.of(context).pushNamed(Dashboard.routeName);
       });
     } else {
        Fluttertoast.showToast(

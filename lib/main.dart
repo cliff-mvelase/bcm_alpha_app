@@ -1,5 +1,6 @@
 import 'package:bcm_alpha_app/screens/contract_info_screen.dart';
 import 'package:bcm_alpha_app/screens/contracts_tabs.dart';
+import 'package:bcm_alpha_app/screens/dashboard.dart';
 import 'package:bcm_alpha_app/screens/dividends_screen.dart';
 import 'package:bcm_alpha_app/screens/investment_contract.dart';
 import 'package:bcm_alpha_app/screens/investment_success_screen.dart';
@@ -19,7 +20,6 @@ import 'package:bcm_alpha_app/screens/settings_screens/kyc.dart';
 import 'package:bcm_alpha_app/screens/settings_screens/privacy_screen.dart';
 import 'package:bcm_alpha_app/screens/settings_screens/terms.dart';
 import 'package:bcm_alpha_app/screens/shareholder_packages_screen.dart';
-import 'package:bcm_alpha_app/screens/tabs_screen.dart';
 import 'package:bcm_alpha_app/screens/theme/theme.dart';
 import 'package:bcm_alpha_app/screens/transaction_history.dart';
 import 'package:bcm_alpha_app/screens/transfer_tabs.dart';
@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
         ResetPassword.routeName: (ctx) => ResetPassword(),
         ResendPassword.routeName: (ctx) => ResendPassword(),
         VerifyPassword.routeName: (ctx) => VerifyPassword(),
-        TabsScreen.routeName: (ctx) => TabsScreen(),
+        Dashboard.routeName: (ctx) => Dashboard(),
         ShareholderPackagesScreen.routeName: (ctx) => ShareholderPackagesScreen(),
         InvestmentsScreen.routeName: (ctx) => InvestmentsScreen(),
         WithdrawalsTabs.routeName: (ctx) => WithdrawalsTabs(),

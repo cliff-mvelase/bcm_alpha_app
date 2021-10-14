@@ -39,6 +39,7 @@ dependencies:
   google_fonts: ^2.1.0
   fluttertoast: ^8.0.8
   provider: ^6.0.1
+  money_formatter: ^0.0.3
 
 dev_dependencies:
   flutter_test:

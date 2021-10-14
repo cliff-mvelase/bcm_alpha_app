@@ -6,13 +6,14 @@ import 'package:bcm_alpha_app/screens/transfer_tabs.dart';
 import 'package:bcm_alpha_app/screens/withdrawal_tabs.dart';
 
 class BalanceCard extends StatefulWidget {
-  final dynamic walletData;
+   final dynamic walletData;
    BalanceCard({Key ?  key, required this.walletData }) : super(key: key);
   @override
   _BalanceCardState createState() => _BalanceCardState();
 }
 
 class _BalanceCardState extends State<BalanceCard> {
+
   @override
   Widget build(BuildContext context) {
     return Container(

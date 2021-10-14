@@ -1,27 +1,30 @@
 import 'dart:convert' as convert;
 import 'dart:convert';
 
+import 'package:bcm_alpha_app/network/api_provider.dart';
+import 'package:bcm_alpha_app/screens/dashboard.dart';
 import 'package:bcm_alpha_app/screens/register_screen.dart';
 import 'package:bcm_alpha_app/screens/reset_password.dart';
-import 'package:bcm_alpha_app/screens/tabs_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginScreen extends StatefulWidget {
-  LoginScreen({Key ? key}) : super(key: key);
   static const routeName = 'loginScreen';
+  LoginScreen({Key ? key}) : super(key: key);
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  static var uri = ApiProvider.api + 'login';
+  bool isLoading = false;
+
   final _nameController = TextEditingController();
   final _passwordController = TextEditingController();
-  bool isLoading = false;
-  static var uri = 'http://140.82.39.29/api/login';
 
+  //user authorization
   Future<void> userLogin() async {
     setState(() {
       isLoading = true;
@@ -47,7 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
       //   isLoading = false;
       // });
       sharedPrefs.setString("token", jsonResponse["data"]["token"]);
-      Navigator.of(context).pushNamed(TabsScreen.routeName);
+      Navigator.of(context).pushNamed(Dashboard.routeName);
     }
     else {
       // setState(() {

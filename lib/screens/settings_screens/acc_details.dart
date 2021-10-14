@@ -3,7 +3,7 @@ import 'dart:convert' as convert;
 import 'dart:io';
 
 import 'package:bcm_alpha_app/network/api_provider.dart';
-import 'package:bcm_alpha_app/screens/tabs_screen.dart';
+import 'package:bcm_alpha_app/screens/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -98,7 +98,7 @@ class _AccountDetailsState extends State<AccountDetails> {
               TextButton(
                 onPressed: () {
                   //  Navigator.of(context).pushNamed(SettingsScreen.routeName);
-                  Navigator.of(context).pushNamed(TabsScreen.routeName);
+                  Navigator.of(context).pushNamed(Dashboard.routeName);
                 },
                 child: Text("OK"),
               )
